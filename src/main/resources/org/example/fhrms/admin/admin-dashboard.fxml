@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.fhrms.controller.AdminController">
+    <!-- Header Section -->
+    <top>
+        <HBox spacing="10" style="-fx-background-color: #333; -fx-padding: 10;">
+            <Button text="Dashboard" style="-fx-background-color: #555; -fx-text-fill: white;" />
+            <Button text="Manage Users" style="-fx-background-color: #555; -fx-text-fill: white;" />
+            <Button text="Settings" style="-fx-background-color: #555; -fx-text-fill: white;" />
+        </HBox>
+    </top>
+
+    <!-- Main Section -->
+    <center>
+        <VBox spacing="10" style="-fx-padding: 20;">
+            <TableView fx:id="userTable" style="-fx-pref-width: 800px;">
+                <columns>
+                    <TableColumn fx:id="columnName" text="Name" prefWidth="200"/>
+                    <TableColumn fx:id="columnEmail" text="Email" prefWidth="300"/>
+                    <TableColumn fx:id="columnRole" text="Role" prefWidth="200"/>
+                    <TableColumn fx:id="columnStatus" text="Status" prefWidth="100"/>
+                </columns>
+            </TableView>
+
+            <Button text="Add New User" onAction="#handleAddUser" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+        </VBox>
+    </center>
+
+    <!-- Footer Section -->
+    <bottom>
+        <HBox style="-fx-background-color: #333; -fx-padding: 10; -fx-alignment: center;">
+            <Button text="Logout" style="-fx-background-color: #d9534f; -fx-text-fill: white;" />
+        </HBox>
+    </bottom>
+</BorderPane>
