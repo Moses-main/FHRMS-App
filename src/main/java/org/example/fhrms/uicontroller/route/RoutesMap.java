@@ -9,6 +9,7 @@ public class RoutesMap {
     private RoutesMap(){
         routes.put("signup","auth/signup-view.fxml");
         routes.put("login","auth/login-view.fxml");
+        routes.put("dashboard","dashboard/dashboard-view.fxml");
     }
 
     public String getRoute(String route){

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.fhrms.uicontroller.dashboard.DashboardController">
+    <!-- Header -->
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="bg-primary p-3">
+            <ImageView fx:id="logo" fitHeight="40" fitWidth="40" />
+            <Label text="Food Heaven" styleClass="text-white h4" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Profile" fx:id="btnProfile" styleClass="btn btn-secondary" />
+            <Button text="Logout" fx:id="btnLogout" styleClass="btn btn-danger" />
+        </HBox>
+    </top>
+
+    <!-- Sidebar Navigation -->
+    <left>
+        <VBox spacing="10" styleClass="bg-light p-3">
+            <Button text="Dashboard" fx:id="btnDashboard" styleClass="btn btn-primary btn-block" />
+            <Button text="Inventory" fx:id="btnInventory" styleClass="btn btn-primary btn-block" />
+            <Button text="Orders" fx:id="btnOrders" styleClass="btn btn-primary btn-block" />
+            <Button text="HR Management" fx:id="btnHR" styleClass="btn btn-primary btn-block" />
+            <Button text="Reports" fx:id="btnReports" styleClass="btn btn-primary btn-block" />
+        </VBox>
+    </left>
+
+    <!-- Main Content Area -->
+    <center>
+        <StackPane fx:id="mainContent" styleClass="p-5">
+            <Label text="Welcome to Food Heaven Dashboard" styleClass="text-primary display-4" />
+        </StackPane>
+    </center>
+
+    <!-- Footer -->
+    <bottom>
+        <HBox spacing="10" alignment="CENTER" styleClass="bg-dark p-3">
+            <Label text="© 2024 Food Heaven Restaurant Management System" styleClass="text-white small" />
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -21,6 +21,12 @@ public class LoginController {
     private Label errorMessageLabel;
 
     @FXML
+    protected void goToDashboard(){
+        Stage stage=(Stage) loginButton.getScene().getWindow();
+        Navigation.navigateTo("dashboard",stage);
+    }
+
+    @FXML
     protected void goToSignup(){
         Stage stage=(Stage) loginButton.getScene().getWindow();
         Navigation.navigateTo("signup",stage);
@@ -32,7 +38,7 @@ public class LoginController {
         String password=passwordField.getText();
         AuthService.loginUser(username,password);
         if(AuthService.getAuthService().isUserAuthenticated()){
-            goToSignup();
+            goToDashboard();
         }
         else{
             errorMessageLabel.setText(AuthService.getAuthService().getErrorMessage());
