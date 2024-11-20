@@ -15,6 +15,7 @@ module org.example.fhrms {
     opens org.example.fhrms.model to javafx.fxml;
     opens org.example.fhrms.uicontroller.auth to javafx.fxml;
     opens org.example.fhrms.uicontroller.dashboard to javafx.fxml;
+
     exports org.example.fhrms;
     exports org.example.fhrms.uicontroller.auth;
     exports org.example.fhrms.model;
