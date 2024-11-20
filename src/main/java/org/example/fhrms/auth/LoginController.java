@@ -14,6 +14,7 @@ public class LoginController {
     protected void loginUser(){
         System.out.println("Loggin user");
         Stage stage=(Stage) loginButton.getScene().getWindow();
+        // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
         Navigation.navigateTo("auth/signup-view.fxml",stage);
     }
 
