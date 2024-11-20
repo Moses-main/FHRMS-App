@@ -13,7 +13,10 @@ module org.example.fhrms {
     opens org.example.fhrms to javafx.fxml;
     opens org.example.fhrms.auth to javafx.fxml;
     opens org.example.fhrms.admin to javafx.fxml;
+    opens org.example.fhrms.chef to javafx.fxml;
+
     exports org.example.fhrms;
     exports org.example.fhrms.auth;
     exports org.example.fhrms.admin;
+    exports org.example.fhrms.chef;
 }
