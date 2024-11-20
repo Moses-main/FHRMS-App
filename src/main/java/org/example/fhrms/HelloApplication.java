@@ -14,15 +14,12 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("admin/admin-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 640, 320);
-        stage.setTitle("Hello!");
+        stage.setTitle("FHRMS!");
         stage.setScene(scene);
         stage.setFullScreen(true);
         stage.show();
 
-
     }
-
-
 
     public static void main(String[] args) {
         launch();
