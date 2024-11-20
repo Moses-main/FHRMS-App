@@ -1,7 +1,10 @@
 package org.example.fhrms.admin;
+
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class AdminDashboardController {
 
@@ -17,10 +20,14 @@ public class AdminDashboardController {
     @FXML
     private Button logoutButton;
 
+    @FXML
+    private Button inventoryManagementButton;
+
     // Event handler for the "Manage Users" button
     @FXML
     private void handleManageUsers() {
         System.out.println("Manage Users clicked");
+        showAlert("Manage Users", "You can now add, update, or delete user");
         // Add your logic for managing users
     }
 
@@ -28,20 +35,40 @@ public class AdminDashboardController {
     @FXML
     private void handleManageRoles() {
         System.out.println("Manage Roles clicked");
+        showAlert("Manage Roles", "You can now manage inventory and stock");
         // Add your logic for managing roles
     }
 
-    // Event handler for the "Settings" button
+    // Event handler for the "Inventory Management" button
     @FXML
-    private void handleSettings() {
-        System.out.println("Settings clicked");
-        // Add your logic for settings
+    private void handleInventoryManagement() {
+        // Placeholder: Navigate to the Inventory Management screen
+        System.out.println("Inventory Management clicked");
+        showAlert("Inventory Management", "You can now manage inventory and stock.");
+        // Integrate with your Inventory Management system (e.g., Square API) here.
     }
+
+    // Event handler for the "Settings" button
+    // @FXML
+    // private void handleSettings() {
+    // System.out.println("Settings clicked");
+    // // Add your logic for settings
+    // }
 
     // Event handler for the "Logout" button
     @FXML
     private void handleLogout() {
         System.out.println("Logout clicked");
+        showAlert("Logout", "You have been logged out");
         // Add your logic for logout
+    }
+
+    // Utility method to show alerts for demonstration
+    private void showAlert(String title, String content) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }
