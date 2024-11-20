@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: #f0f4f8;">
+<AnchorPane xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: #f0f4f8;" fx:controller="org.example.fhrms.admin.AdminDashboardController">
 
-    <!-- <VBox alignment="CENTER" spacing="20" prefWidth="800" prefHeight="600" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
+     <VBox alignment="CENTER" spacing="20" prefWidth="800" prefHeight="600" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
         <style>
             -fx-padding: 20px 50px;
         </style>
@@ -34,6 +34,6 @@
             <Button text="Logout" prefWidth="150" prefHeight="40" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;" onAction="#handleLogout"/>
         </HBox>
 
-    </VBox> -->
+    </VBox>
 
 </AnchorPane>
