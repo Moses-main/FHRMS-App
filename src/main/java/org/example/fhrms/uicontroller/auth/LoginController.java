@@ -17,6 +17,8 @@ public class LoginController {
     private TextField usernameField;
     @FXML
     private PasswordField passwordField;
+    @FXML
+    private Label errorMessageLabel;
 
     @FXML
     protected void goToSignup(){
@@ -28,8 +30,13 @@ public class LoginController {
     protected void login(){
         String username=usernameField.getText();
         String password=passwordField.getText();
-        AuthService.registerUser(username,password);
-        goToSignup();
+        AuthService.loginUser(username,password);
+        if(AuthService.getAuthService().isUserAuthenticated()){
+            goToSignup();
+        }
+        else{
+            errorMessageLabel.setText(AuthService.getAuthService().getErrorMessage());
+        }
     }
 
 }
