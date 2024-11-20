@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: #f0f4f8;" fx:controller="org.example.fhrms.auth.LoginController">
+    <VBox alignment="CENTER" spacing="20" prefWidth="600" prefHeight="400" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" styleClass="auth-container">
+        <style>
+            -fx-padding:0px 300px;
+        </style>
+        <Label text="Login" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
+        <TextField promptText="Username" prefHeight="40" style="-fx-background-radius: 10; -fx-border-radius: 10;" />
+        <PasswordField promptText="Password" prefHeight="40" style="-fx-background-radius: 10; -fx-border-radius: 10;" />
+        <Button text="Login" prefHeight="40" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;"
+        onAction="#loginUser" fx:id="loginButton"
+        />
+        <Hyperlink text="Don't have an account? Sign Up" style="-fx-text-fill: #3498db;" />
+    </VBox>
+</AnchorPane>
+

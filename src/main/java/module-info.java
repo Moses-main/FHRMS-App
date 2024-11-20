@@ -11,5 +11,7 @@ module org.example.fhrms {
     requires eu.hansolo.tilesfx;
 
     opens org.example.fhrms to javafx.fxml;
+    opens org.example.fhrms.auth to javafx.fxml;
     exports org.example.fhrms;
+    exports org.example.fhrms.auth;
 }

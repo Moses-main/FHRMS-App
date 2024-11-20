@@ -1,0 +1,57 @@
+/* styles.css */
+.root {
+    -fx-font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -fx-background-color: #f8f9fa;
+}
+
+.form-container {
+    -fx-background-color: white;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 0);
+}
+
+.title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #343a40;
+}
+
+.text-field, .password-field {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #ced4da;
+    -fx-border-width: 1px;
+    -fx-padding: 10;
+    -fx-pref-width: 100%;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #80bdff;
+    -fx-background-color: #ffffff;
+}
+
+.button-primary {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-padding: 10;
+    -fx-cursor: hand;
+    -fx-pref-width: 100%;
+}
+
+.button-primary:hover {
+    -fx-background-color: #0056b3;
+}
+
+.link {
+    -fx-text-fill: #007bff;
+    -fx-underline: true;
+    -fx-cursor: hand;
+    -fx-text-align: center;
+    -fx-pref-width: 100%;
+}
