@@ -2,8 +2,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #f0f4f8;" fx:controller="org.example.fhrms.auth.SignupController">
-    <VBox alignment="CENTER" spacing="15" layoutX="100.0" layoutY="50.0" prefWidth="400" styleClass="auth-container" >
+<AnchorPane
+        fx:id="mainContainer"
+        xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: #f0f4f8;" fx:controller="org.example.fhrms.uicontroller.auth.SignupController">
+    <VBox alignment="CENTER" spacing="20" prefWidth="600" prefHeight="400" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" styleClass="auth-container">
         <Label text="Sign Up" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
         <TextField promptText="Full Name" prefHeight="40" style="-fx-background-radius: 10; -fx-border-radius: 10;" />
         <TextField promptText="Username" prefHeight="40" style="-fx-background-radius: 10; -fx-border-radius: 10;" />
