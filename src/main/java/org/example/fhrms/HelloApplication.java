@@ -15,7 +15,7 @@ import org.kordamp.bootstrapfx.BootstrapFX;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("waoter/waiter-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("waiter/waiter-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 640, 320);
         scene.getStylesheets().setAll(BootstrapFX.bootstrapFXStylesheet());
         stage.setTitle("FHRMS!");
