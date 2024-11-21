@@ -11,6 +11,10 @@ public class RoutesMap {
         routes.put("login", "auth/login-view.fxml");
         routes.put("dashboard", "dashboard/dashboard-view.fxml");
         routes.put("chef", "chef/chef-view.fxml");
+        routes.put("admin", "admin/admin-view.fxml");
+        routes.put("waiter", "waiter/waiter-view.fxml");
+        routes.put("user", "user/user-view.fxml");
+        routes.put("admin/dashboard", "chef/chef-view.fxml");
     }
 
     public String getRoute(String route) {

@@ -2,7 +2,7 @@ package org.example.fhrms;
 
 import org.example.fhrms.model2.User;
 
-import java.util.Collections;
+
 import java.util.HashMap;
 import java.util.Optional;
 import java.util.UUID;
@@ -22,7 +22,7 @@ public class db {
 
     public User saveUser(User user) {
         String id= UUID.randomUUID().toString();
-        User newUser=new User(id,user.fullname(),user.username(),user.password());
+        User newUser=new User(id,user.fullname(),user.username(),user.password(),user.userRole());
         DB.put(id,newUser);
         return newUser;
     }

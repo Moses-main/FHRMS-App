@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.fhrms.controller.AdminController">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.fhrms.admin.AdminDashboardController">
     <!-- Header Section -->
     <top>
         <HBox spacing="10" style="-fx-background-color: #333; -fx-padding: 10;">
