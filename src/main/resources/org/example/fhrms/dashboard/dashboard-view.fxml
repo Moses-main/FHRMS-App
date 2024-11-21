@@ -23,8 +23,14 @@
             <Button text="Orders" fx:id="btnOrders" styleClass="btn btn-primary btn-block" />
             <Button text="HR Management" fx:id="btnHR" styleClass="btn btn-primary btn-block" />
             <Button text="Reports" fx:id="btnReports" styleClass="btn btn-primary btn-block" />
+
+            <Button text="Chef" fx:id="btnChef" styleClass="btn btn-primary btn-block"
+            
+            />
         </VBox>
     </left>
+
+
 
     <!-- Main Content Area -->
     <center>
