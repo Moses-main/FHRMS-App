@@ -65,4 +65,10 @@ public class AuthService {
             System.out.println(savedUser.id());
         }
     }
+
+    public static void logoutUser(){
+        AuthService authService = getAuthService();
+        authService.setAuthenticatedUser(null);
+        authService.setErrorMessage("");
+    }
 }

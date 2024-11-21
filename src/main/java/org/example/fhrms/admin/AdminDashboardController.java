@@ -1,10 +1,13 @@
 package org.example.fhrms.admin;
 
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import org.example.fhrms.service.AuthService;
+import org.example.fhrms.uicontroller.route.Navigation;
 
 public class AdminDashboardController {
 
@@ -14,6 +17,8 @@ public class AdminDashboardController {
     @FXML
     private Button manageRolesButton;
 
+    @FXML
+    private AnchorPane adminAnchorPane;
     @FXML
     private Button settingsButton;
 
@@ -58,8 +63,8 @@ public class AdminDashboardController {
     // Event handler for the "Logout" button
     @FXML
     private void handleLogout() {
-        System.out.println("Logout clicked");
-        showAlert("Logout", "You have been logged out");
+        AuthService.logoutUser();
+        if(!AuthService.getAuthService().isUserAuthenticated()) goToLogin();
         // Add your logic for logout
     }
 
@@ -70,5 +75,10 @@ public class AdminDashboardController {
         alert.setHeaderText(null);
         alert.setContentText(content);
         alert.showAndWait();
+    }
+
+    private void goToLogin() {
+        Stage stage = (Stage) adminAnchorPane.getScene().getWindow();
+        Navigation.navigateTo("login",stage);
     }
 }
