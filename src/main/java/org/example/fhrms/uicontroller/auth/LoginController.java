@@ -21,32 +21,31 @@ public class LoginController {
     @FXML
     private Label errorMessageLabel;
 
-    protected void goToDashboard(String route){
-        Stage stage=(Stage) loginButton.getScene().getWindow();
-        Navigation.navigateTo(route,stage);
+    protected void goToDashboard(String route) {
+        Stage stage = (Stage) loginButton.getScene().getWindow();
+        Navigation.navigateTo(route, stage);
     }
 
     @FXML
-    protected void goToSignup(){
-        Stage stage=(Stage) loginButton.getScene().getWindow();
-        Navigation.navigateTo("signup",stage);
+    protected void goToSignup() {
+        Stage stage = (Stage) loginButton.getScene().getWindow();
+        Navigation.navigateTo("signup", stage);
     }
 
     @FXML
-    protected void login(){
-        String username=usernameField.getText();
-        String password=passwordField.getText();
-        AuthService.loginUser(username,password);
-        if(AuthService.getAuthService().isUserAuthenticated()){
-            User user=AuthService.getAuthService().getAuthenticatedUser();
-            switch (user.userRole()){
+    protected void login() {
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+        AuthService.loginUser(username, password);
+        if (AuthService.getAuthService().isUserAuthenticated()) {
+            User user = AuthService.getAuthService().getAuthenticatedUser();
+            switch (user.userRole()) {
                 case USER -> goToDashboard("user");
                 case ADMIN -> goToDashboard("admin");
                 case CHEF -> goToDashboard("chef");
                 case WAITER -> goToDashboard("waiter");
             }
-        }
-        else{
+        } else {
             errorMessageLabel.setText(AuthService.getAuthService().getErrorMessage());
         }
     }
