@@ -2,31 +2,61 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+
 <AnchorPane
         fx:id="mainContainer"
         xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: #f0f4f8;" fx:controller="org.example.fhrms.uicontroller.auth.SignupController">
-    <VBox alignment="CENTER" spacing="20" prefWidth="600" prefHeight="400" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" styleClass="auth-container">
+    <VBox alignment="CENTER" spacing="20" prefWidth="600" prefHeight="500" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" styleClass="auth-container">
         <style>
-            -fx-padding:0px 300px;
+            -fx-padding: 0px 300px;
         </style>
+        
+        <!-- Title -->
         <Label text="Sign Up" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
-        <Label fx:id="errorMessageLabel" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
+        
+        <!-- Error Message Label -->
+        <Label fx:id="errorMessageLabel" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: red;" />
+        
+        <!-- Full Name Field -->
         <TextField
                 fx:id="fullNameTextField"
                 promptText="Full Name" prefHeight="40" style="-fx-background-radius: 10; -fx-border-radius: 10;" />
+        
+        <!-- Username Field -->
         <TextField
                 fx:id="usernameTextField"
                 promptText="Username" prefHeight="40" style="-fx-background-radius: 10; -fx-border-radius: 10;" />
+        
+        <!-- Password Field -->
         <PasswordField
                 fx:id="passwordTextField"
                 promptText="Password" prefHeight="40" style="-fx-background-radius: 10; -fx-border-radius: 10;" />
+        
+        <!-- Confirm Password Field -->
         <PasswordField
                 fx:id="confirmPasswordTextField"
                 promptText="Confirm Password" prefHeight="40" style="-fx-background-radius: 10; -fx-border-radius: 10;" />
+        
+        <!-- Role Selection Dropdown -->
+        <ComboBox
+                fx:id="roleComboBox"
+                promptText="Select Role" prefHeight="40" style="-fx-background-radius: 10; -fx-border-radius: 10;">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Admin" />
+                    <String fx:value="Waiter" />
+                    <String fx:value="Chef" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+        
+        <!-- Signup Button -->
         <Button
                 fx:id="signupButton"
                 onAction="#signUp"
                 text="Sign Up" prefHeight="40" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;" />
+        
+        <!-- Login Hyperlink -->
         <Hyperlink
                 onAction="#goToLogin"
                 text="Already have an account? Login" style="-fx-text-fill: #3498db;" />

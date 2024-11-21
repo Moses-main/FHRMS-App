@@ -64,3 +64,55 @@
     -fx-pref-width: 100%; /* Ensure it stretches to the container */
     -fx-max-width: 500px; /* Limit the maximum width for larger screens */
 }
+
+
+
+
+/* styles for the login form */
+
+.auth-container {
+    -fx-alignment: center;
+    -fx-padding: 20;
+    -fx-pref-width: 90%; /* Use a percentage to ensure responsiveness */
+    -fx-max-width: 400px; /* Limit maximum width for larger screens */
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 0);
+}
+
+.text-field, .password-field {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #ced4da;
+    -fx-border-width: 1px;
+    -fx-padding: 10;
+    -fx-pref-width: 90%; /* Ensure the input width adjusts based on screen size */
+    -fx-max-width: 350px; /* Set a reasonable maximum width */
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #3498db;
+    -fx-background-color: #ffffff;
+}
+
+.button-primary {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+    -fx-pref-width: 90%; /* Adjust to be responsive */
+    -fx-max-width: 350px; /* Limit width for consistency */
+}
+
+.link {
+    -fx-text-fill: #3498db;
+    -fx-underline: true;
+    -fx-cursor: hand;
+    -fx-text-align: center;
+    -fx-pref-width: 90%; /* Center-align and responsive width */
+    -fx-max-width: 350px;
+}
