@@ -1,6 +1,6 @@
 package org.example.fhrms;
 
-import org.example.fhrms.model.User;
+import org.example.fhrms.model2.User;
 
 import java.util.Collections;
 import java.util.HashMap;

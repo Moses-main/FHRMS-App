@@ -1,7 +1,7 @@
 package org.example.fhrms.service;
 
 import org.example.fhrms.db;
-import org.example.fhrms.model.User;
+import org.example.fhrms.model2.User;
 
 import java.util.Optional;
 import java.util.UUID;
