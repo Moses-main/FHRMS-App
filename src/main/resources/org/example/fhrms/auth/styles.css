@@ -26,7 +26,8 @@
     -fx-border-color: #ced4da;
     -fx-border-width: 1px;
     -fx-padding: 10;
-    -fx-pref-width: 100%;
+    -fx-pref-width: 100%; /* Make the fields flexible */
+    -fx-max-width: 400px; /* Set a maximum width for better responsiveness */
 }
 
 .text-field:focused, .password-field:focused {
@@ -40,8 +41,8 @@
     -fx-font-weight: bold;
     -fx-background-radius: 5;
     -fx-padding: 10;
-    -fx-cursor: hand;
-    -fx-pref-width: 100%;
+    -fx-pref-width: 100%; /* Full width but with a max-width for responsiveness */
+    -fx-max-width: 400px; /* Limit max width */
 }
 
 .button-primary:hover {
@@ -54,7 +55,12 @@
     -fx-cursor: hand;
     -fx-text-align: center;
     -fx-pref-width: 100%;
+    -fx-max-width: 400px;
 }
 
 .auth-container {
+    -fx-alignment: center;
+    -fx-padding: 10 30 10 30; /* Adjust padding for responsiveness */
+    -fx-pref-width: 100%; /* Ensure it stretches to the container */
+    -fx-max-width: 500px; /* Limit the maximum width for larger screens */
 }

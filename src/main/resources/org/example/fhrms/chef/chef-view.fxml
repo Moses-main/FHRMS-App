@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: #f0f4f8;" fx:controller="org.example.fhrms.chef.ChefDashboardController">
+    <VBox alignment="TOP_CENTER" spacing="15" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
+        <!-- Title Label -->
+        <Label text="Chef Dashboard" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
+
+        <!-- Order List (Pending Orders) -->
+        <ListView fx:id="ordersList" prefHeight="200" prefWidth="300">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Order 1"/>
+                    <String fx:value="Order 2"/>
+                    <String fx:value="Order 3"/>
+                </FXCollections>
+            </items>
+        </ListView>
+
+        <!-- Buttons for Order Processing -->
+        <HBox spacing="20" alignment="CENTER">
+            <Button text="Mark as In Progress" onAction="#markInProgress" fx:id="markInProgressButton" />
+            <Button text="Mark as Completed" onAction="#markCompleted" fx:id="markCompletedButton" />
+        </HBox>
+
+        <!-- Inventory Check Button -->
+        <Button text="Check Inventory" onAction="#checkInventory" fx:id="checkInventoryButton" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;" />
+
+        <!-- Logout Button -->
+        <Button text="Logout" onAction="#logout" fx:id="logoutButton" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold;" />
+    </VBox>
+</AnchorPane>

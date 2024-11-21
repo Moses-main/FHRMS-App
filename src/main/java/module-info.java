@@ -15,10 +15,12 @@ module org.example.fhrms {
     opens org.example.fhrms.model to javafx.fxml;
     opens org.example.fhrms.uicontroller.auth to javafx.fxml;
     opens org.example.fhrms.uicontroller.dashboard to javafx.fxml;
+    opens org.example.fhrms.chef to javafx.fxml;
+
     exports org.example.fhrms;
     exports org.example.fhrms.uicontroller.auth;
     exports org.example.fhrms.model;
+    exports org.example.fhrms.chef;
     exports org.example.fhrms.uicontroller.dashboard;
-    exports org.example.fhrms.model2;
-    opens org.example.fhrms.model2 to javafx.fxml;
+
 }
