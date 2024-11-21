@@ -20,15 +20,6 @@ public class DashboardController {
     private Button btnReports;
     @FXML
     private StackPane mainContent;
-    //
-    // @FXML
-    // private Button btnChef;
-
-    // @FXML
-    // protected void goToChefDashboard() {
-    // Stage stage = (Stage) btnChef.getScene().getWindow();
-    // Navigation.navigateTo("chef", stage);
-    // }
 
     @FXML
     private void initialize() {

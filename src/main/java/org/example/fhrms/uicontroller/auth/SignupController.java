@@ -27,28 +27,25 @@ public class SignupController {
     @FXML
     private PasswordField confirmPasswordTextField;
 
-
     @FXML
-    protected void goToLogin(){
+    protected void goToLogin() {
         Stage stage = (Stage) signupButton.getScene().getWindow();
-        Navigation.navigateTo("login",stage);
+        Navigation.navigateTo("login", stage);
     }
 
     @FXML
-    protected void signUp(){
+    protected void signUp() {
         String username = usernameTextField.getText().trim();
         String password = passwordTextField.getText().trim();
         String confirmPassword = confirmPasswordTextField.getText().trim();
         String fullName = fullNameTextField.getText().trim();
-        String error= ValidatorService.validateUser(fullName,username,password,confirmPassword);
-        if(error==null){
-            AuthService.registerUser(fullName,username,password,confirmPassword);
+        String error = ValidatorService.validateUser(fullName, username, password, confirmPassword);
+        if (error == null) {
+            AuthService.registerUser(fullName, username, password, confirmPassword);
             goToLogin();
-        }
-        else{
+        } else {
             errorMessageLabel.setText(error);
         }
     }
-
 
 }
