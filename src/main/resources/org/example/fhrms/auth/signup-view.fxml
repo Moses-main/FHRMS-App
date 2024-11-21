@@ -23,6 +23,7 @@
         <PasswordField
                 fx:id="confirmPasswordTextField"
                 promptText="Confirm Password" prefHeight="40" style="-fx-background-radius: 10; -fx-border-radius: 10;" />
+        <ComboBox  fx:id="roleComboBox" promptText="Select Role" styleClass="split-menu-btn-primary"/>
         <Button
                 fx:id="signupButton"
                 onAction="#signUp"

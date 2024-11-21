@@ -1,15 +1,15 @@
 package org.example.fhrms.uicontroller.auth;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.example.fhrms.model2.Role;
 import org.example.fhrms.service.AuthService;
 import org.example.fhrms.service.ValidatorService;
 import org.example.fhrms.uicontroller.route.Navigation;
+
+import java.util.Arrays;
 
 public class SignupController {
 
@@ -26,7 +26,14 @@ public class SignupController {
     private PasswordField passwordTextField;
     @FXML
     private PasswordField confirmPasswordTextField;
+    @FXML
+    private ComboBox roleComboBox;
 
+    @FXML
+    public void initialize(){
+        roleComboBox.getItems().addAll(Role.values());
+        roleComboBox.setValue(Role.USER);
+    }
 
     @FXML
     protected void goToLogin(){
@@ -40,9 +47,10 @@ public class SignupController {
         String password = passwordTextField.getText().trim();
         String confirmPassword = confirmPasswordTextField.getText().trim();
         String fullName = fullNameTextField.getText().trim();
+        String role = roleComboBox.getSelectionModel().getSelectedItem().toString();
         String error= ValidatorService.validateUser(fullName,username,password,confirmPassword);
         if(error==null){
-            AuthService.registerUser(fullName,username,password,confirmPassword);
+            AuthService.registerUser(fullName,username,password,Role.valueOf(role));
             goToLogin();
         }
         else{

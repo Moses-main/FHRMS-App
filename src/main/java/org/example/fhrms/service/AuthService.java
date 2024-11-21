@@ -1,6 +1,7 @@
 package org.example.fhrms.service;
 
 import org.example.fhrms.db;
+import org.example.fhrms.model2.Role;
 import org.example.fhrms.model2.User;
 
 import java.util.Optional;
@@ -14,6 +15,10 @@ public class AuthService {
     private static AuthService authService;
 
     private AuthService() {
+    }
+
+    public User getAuthenticatedUser() {
+        return AuthenticatedUser;
     }
 
     public void setAuthenticatedUser(User user) {
@@ -52,8 +57,8 @@ public class AuthService {
         }
     }
 
-    public static void registerUser(String fullname, String username, String password, String confirmPassword) {
-        User user = new User(null, fullname, username, password);
+    public static void registerUser(String fullname, String username, String password, Role role) {
+        User user = new User(null, fullname, username, password,role);
         User savedUser = db.getInstance().saveUser(user);
         if (savedUser != null) {
             System.out.println("User registered successfully");

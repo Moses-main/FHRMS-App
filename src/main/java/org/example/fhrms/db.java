@@ -22,7 +22,7 @@ public class db {
 
     public User saveUser(User user) {
         String id= UUID.randomUUID().toString();
-        User newUser=new User(id,user.fullname(),user.username(),user.password());
+        User newUser=new User(id,user.fullname(),user.username(),user.password(),null);
         DB.put(id,newUser);
         return newUser;
     }
