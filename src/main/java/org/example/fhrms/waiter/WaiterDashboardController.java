@@ -5,6 +5,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import org.example.fhrms.service.AuthService;
+import org.example.fhrms.uicontroller.route.Navigation;
 
 public class WaiterDashboardController {
 
@@ -17,6 +21,8 @@ public class WaiterDashboardController {
     @FXML
     private TableColumn<Order, String> orderIdColumn;
 
+    @FXML
+    private AnchorPane waiterAnchorPane;
     @FXML
     private TableColumn<Order, String> customerNameColumn;
 
@@ -78,8 +84,14 @@ public class WaiterDashboardController {
     private void logout() {
         // Handle logout logic here
         System.out.println("Logging out...");
+        AuthService.logoutUser();
+        if(!AuthService.getAuthService().isUserAuthenticated()) goToLogin();
     }
 
+    private void goToLogin() {
+        Stage stage = (Stage) waiterAnchorPane.getScene().getWindow();
+        Navigation.navigateTo("login",stage);
+    }
     // Order class for table items
     public static class Order {
         private String orderId;

@@ -6,6 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
+import org.example.fhrms.service.AuthService;
+import org.example.fhrms.uicontroller.route.Navigation;
 
 public class ChefDashboardController {
 
@@ -58,9 +61,14 @@ public class ChefDashboardController {
     // This method is called when the chef clicks on "Logout"
     @FXML
     private void logout(ActionEvent event) {
-        // Placeholder functionality for logging out
-        showAlert("Logout", "Logging out of the system.");
-        // Implement actual logout logic (e.g., redirect to the login screen)
+        AuthService.logoutUser();
+        if(!AuthService.getAuthService().isUserAuthenticated()) goToLogin();
+
+    }
+
+    private void goToLogin() {
+        Stage stage = (Stage) ordersList.getScene().getWindow();
+        Navigation.navigateTo("login",stage);
     }
 
     // Utility method to show alerts

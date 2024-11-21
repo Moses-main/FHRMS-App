@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.fhrms.uicontroller.user.UserDashboardController">
+    <children>
+        <VBox spacing="10" alignment="CENTER" prefWidth="600" prefHeight="400" layoutX="50" layoutY="20">
+            <HBox alignment="CENTER_RIGHT" spacing="10" prefWidth="550">
+                <Label fx:id="displayUsername" text="Welcome, User!" styleClass="text-primary">
+                    <style>
+                        -fx-font-size: 24px;
+                        -fx-font-weight: bold;
+                        -fx-text-fill: #333;
+                    </style>
+                </Label>
+                <Button text="Logout" onAction="#hangleLogout" styleClass="btn btn-danger"/>
+            </HBox>
+
+            <Label text="Food Heaven - User Dashboard" styleClass="h1 text-primary"/>
+
+            <!-- Table for food items -->
+            <TableView fx:id="foodTable" prefHeight="200" prefWidth="550">
+                <columns>
+                    <TableColumn text="Food Item" fx:id="foodNameColumn" prefWidth="250"/>
+                    <TableColumn text="Price" fx:id="priceColumn" prefWidth="150"/>
+                    <TableColumn text="Quantity Available" fx:id="quantityColumn" prefWidth="150"/>
+                </columns>
+            </TableView>
+
+            <!-- Selection area -->
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Select Food:"/>
+                <ComboBox fx:id="foodComboBox" promptText="Choose Food" prefWidth="150"/>
+                <Label text="Quantity:"/>
+                <Spinner fx:id="quantitySpinner" prefWidth="80"/>
+            </HBox>
+
+            <!-- Order button -->
+            <Button text="Place Order" onAction="#handlePlaceOrder" styleClass="btn btn-primary"/>
+        </VBox>
+    </children>
+</AnchorPane>

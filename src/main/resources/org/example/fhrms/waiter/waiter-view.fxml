@@ -2,7 +2,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.fhrms.waiter.WaiterDashboardController" style="-fx-background-color: #f8f9fa;">
+<AnchorPane
+        fx:id="waiterAnchorPane"
+        xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.fhrms.waiter.WaiterDashboardController" style="-fx-background-color: #f8f9fa;">
     <VBox alignment="CENTER" spacing="10" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
         <!-- Dashboard Header -->
         <Label text="Waiter Dashboard" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
@@ -35,6 +37,7 @@
         </VBox>
 
         <!-- Logout Button -->
-        <Button fx:id="logoutButton" text="Logout" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" onAction="#logout" />
+        <Button
+                fx:id="logoutButton" text="Logout" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" onAction="#logout" />
     </VBox>
 </AnchorPane>

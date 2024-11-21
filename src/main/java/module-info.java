@@ -18,6 +18,7 @@ module org.example.fhrms {
     opens org.example.fhrms.waiter to javafx.fxml;
     opens org.example.fhrms.chef to javafx.fxml;
     opens org.example.fhrms.admin to javafx.fxml;
+    opens org.example.fhrms.uicontroller.user to javafx.fxml;
 
 
     exports org.example.fhrms;
@@ -26,6 +27,7 @@ module org.example.fhrms {
     exports org.example.fhrms.chef;
     exports org.example.fhrms.model;
     exports org.example.fhrms.admin;
+    exports org.example.fhrms.uicontroller.user;
 
     exports org.example.fhrms.uicontroller.dashboard;
 

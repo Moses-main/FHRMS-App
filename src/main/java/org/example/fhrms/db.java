@@ -1,5 +1,6 @@
 package org.example.fhrms;
 
+import org.example.fhrms.model2.Role;
 import org.example.fhrms.model2.User;
 
 
@@ -12,7 +13,17 @@ public class db {
 
     private static db data=new db();
 
-    private db() {}
+    private db() {
+        User user=new User(UUID.randomUUID().toString(),"test@user","test@user","test@user", Role.USER);
+        User admin=new User(UUID.randomUUID().toString(),"test@admin","test@admin","test@admin", Role.ADMIN);
+        User chef=new User(UUID.randomUUID().toString(),"test@chef","test@chef","test@chef", Role.CHEF);
+        User waiter=new User(UUID.randomUUID().toString(),"test@waiter","test@waiter","test@waiter", Role.WAITER);
+
+        DB.put(user.id(),user);
+        DB.put(admin.id(),admin);
+        DB.put(chef.id(),chef);
+        DB.put(waiter.id(),waiter);
+    }
     public static db getInstance() {
         if(data==null){
             data=new db();
