@@ -41,25 +41,18 @@ public class UserDashboardController {
         displayUsername.setText(
                 "Welcome , "+user==null ? "User" : user.username()
         );
-        // Initialize table columns
+
         foodNameColumn.setCellValueFactory(data -> data.getValue().foodNameProperty());
         priceColumn.setCellValueFactory(data -> data.getValue().priceProperty().asObject());
-        quantityColumn.setCellValueFactory(data -> data.getValue().quantityProperty().asObject());
-
-        // Add food items (simulate fetching from database)
         foodItems.addAll(
                 new FoodItem("Burger", 5.99, 10),
                 new FoodItem("Pizza", 8.99, 5),
                 new FoodItem("Pasta", 6.49, 7)
         );
         foodTable.setItems(foodItems);
-
-        // Populate ComboBox with food names
         for (FoodItem foodItem : foodItems) {
             foodComboBox.getItems().add(foodItem.getFoodName());
         }
-
-        // Configure Spinner for selecting quantity
         quantitySpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10, 1));
     }
 
