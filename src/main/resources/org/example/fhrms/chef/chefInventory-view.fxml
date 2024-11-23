@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+     fx:controller="org.example.fhrms.chef.ChefInventoryController.java">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label text="Inventory Management" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <!-- Table for Inventory Items -->
+    <TableView fx:id="inventoryTable" prefWidth="600" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="itemNameColumn" text="Item Name" prefWidth="200" />
+            <TableColumn fx:id="stockLevelColumn" text="Stock Level" prefWidth="150" />
+            <TableColumn fx:id="unitPriceColumn" text="Unit Price" prefWidth="150" />
+        </columns>
+    </TableView>
+
+    <!-- Buttons for Actions -->
+    <VBox spacing="10.0" alignment="CENTER">
+        <Button text="Add Item" fx:id="addItemButton" 
+                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;" />
+        <Button text="Update Stock" fx:id="updateStockButton" 
+                style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-font-weight: bold;" />
+        <Button text="Remove Item" fx:id="removeItemButton" 
+                style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold;" />
+    </VBox>
+</VBox>

@@ -148,8 +148,18 @@ Running the Application
     Role-Based Dashboard:
         After logging in, users will be redirected to their respective dashboards:
             Admin Dashboard: For managing users, inventory, and generating reports.
+            - Use the input below for both the username and password
+            ```
+            test@admin
+            ```
             Waiter Dashboard: For creating and tracking food orders.
+            ```
+            test@chef
+            ```
             Chef Dashboard: For viewing and updating food orders.
+            ```
+            test@waiter
+            ```
 
     Navigating through the app:
         Admins can manage users, inventory, and generate reports.
