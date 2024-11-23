@@ -1,9 +1,5 @@
 // package org.example.fhrms.chef;
 
-// // public class ChefInventoryController {
-
-// // }
-
 // import javafx.collections.FXCollections;
 // import javafx.collections.ObservableList;
 // import javafx.fxml.FXML;
