@@ -15,9 +15,10 @@ public class RoutesMap {
         routes.put("waiter", "waiter/waiter-view.fxml");
 
         // ACCESSIBLE BY ADMIN ALONE
-        routes.put("manage-users", "admin/manageUsers-view.fxml");
-        routes.put("manage-roles", "admin/manageRoles-view.fxml");
-        // routes.put("admin/dashboard", "chef/chef-view.fxml");
+        routes.put("admin/manage-users", "admin/manageUsers-view.fxml");
+        routes.put("admin/manage-roles", "admin/manageRoles-view.fxml");
+        routes.put("admin/manage-inventory", "admin/manageInventory-view.fxml");
+
     }
 
     public String getRoute(String route) {
