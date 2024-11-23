@@ -1,15 +1,21 @@
 package org.example.fhrms;
 
+import javafx.util.Pair;
+import org.example.fhrms.model.FoodItem;
+import org.example.fhrms.model.Order;
 import org.example.fhrms.model2.Role;
 import org.example.fhrms.model2.User;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 public class db {
     private final HashMap<String, User> DB=new HashMap<String,User>();
+    private final HashMap<String, FoodItem> FoodItemDB=new HashMap<>();
+    private final HashMap<String, Order> OrderDB=new HashMap<>();
 
     private static db data=new db();
 
@@ -45,5 +51,23 @@ public class db {
             }
         }
         return Optional.empty();
+    }
+
+    public boolean saveOrder(Order order) {
+        String id= UUID.randomUUID().toString();
+        Order savedOrder=new Order(
+          order.getId(),
+          order.getFoodItemAndNumber()
+        );
+        OrderDB.put(id,savedOrder);
+        return true;
+    }
+
+    public List<Order> getAllOrders() {
+        return OrderDB.values().stream().toList();
+    }
+
+    public void removeOrder(String id) {
+        OrderDB.remove(id);
     }
 }

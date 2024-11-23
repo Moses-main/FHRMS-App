@@ -1,6 +1,7 @@
 package org.example.fhrms.uicontroller.route;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 public class RoutesMap {
     private static RoutesMap routeMap = new RoutesMap();
@@ -22,8 +23,10 @@ public class RoutesMap {
         routes.put("admin/manage-reports", "admin/manageReports-view.fxml");
     }
 
-    public String getRoute(String route) {
-        return routes.get(route);
+    public Optional<String> getRoute(String route) {
+
+        String foundRoute=routes.get(route);
+        return Optional.of(foundRoute);
     }
 
     public static RoutesMap getInstance() {

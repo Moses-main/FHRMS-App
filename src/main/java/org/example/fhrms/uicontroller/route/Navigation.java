@@ -11,12 +11,13 @@ public class Navigation {
         try {
             Parent root =
                     FXMLLoader.load(HelloApplication.class.getResource(
-                            RoutesMap.getInstance().getRoute(route)
+                            RoutesMap.getInstance().getRoute(route).get()
                     ));
             stage.getScene().setRoot(root);
             stage.show();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Route des not exist");
+           // e.printStackTrace();
         }
     }
 }

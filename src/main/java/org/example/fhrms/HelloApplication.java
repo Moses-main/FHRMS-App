@@ -21,6 +21,7 @@ public class HelloApplication extends Application {
         stage.setTitle("FHRMS!");
         stage.setScene(scene);
         stage.setFullScreen(true);
+        stage.setResizable(true);
         stage.show();
     }
 

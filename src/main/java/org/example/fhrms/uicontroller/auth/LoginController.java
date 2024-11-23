@@ -1,5 +1,6 @@
 package org.example.fhrms.uicontroller.auth;
 
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -9,6 +10,9 @@ import javafx.stage.Stage;
 import org.example.fhrms.model2.User;
 import org.example.fhrms.service.AuthService;
 import org.example.fhrms.uicontroller.route.Navigation;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class LoginController {
 
@@ -23,7 +27,12 @@ public class LoginController {
 
     protected void goToDashboard(String route) {
         Stage stage = (Stage) loginButton.getScene().getWindow();
-        Navigation.navigateTo(route, stage);
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Navigation.navigateTo(route, stage);
+            }
+        },1000);
     }
 
     @FXML
@@ -38,6 +47,7 @@ public class LoginController {
         String password = passwordField.getText();
         AuthService.loginUser(username, password);
         if (AuthService.getAuthService().isUserAuthenticated()) {
+            errorMessageLabel.setText("User successfully logged in");
             User user = AuthService.getAuthService().getAuthenticatedUser();
             switch (user.userRole()) {
                 case USER -> goToDashboard("user");

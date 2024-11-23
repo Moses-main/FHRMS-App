@@ -39,7 +39,7 @@ public class AdminDashboardController {
 
         Stage stage = (Stage) manageUsersButton.getScene().getWindow();
         // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
-        Navigation.navigateTo("admin/manageUsers-view.fxml", stage);
+        Navigation.navigateTo("admin/manage-users", stage);
         // Add your logic for managing users
     }
 
@@ -69,7 +69,7 @@ public class AdminDashboardController {
     private void handleSettings() {
         // Placeholder: Navigate to the Inventory Management screen
         System.out.println("System Settings clicked");
-        showAlert("System Settings", "You can now manage sytem settings.");
+        showAlert("System Settings", "You can now manage system settings.");
         // Integrate with your Inventory Management system (e.g., Square API) here.
     }
 
