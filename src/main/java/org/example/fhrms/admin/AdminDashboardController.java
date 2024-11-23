@@ -49,7 +49,7 @@ public class AdminDashboardController {
         System.out.println("Manage Roles clicked");
         Stage stage = (Stage) manageRolesButton.getScene().getWindow();
         // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
-        Navigation.navigateTo("admin/manageRoles-view.fxml", stage);
+        Navigation.navigateTo("admin/manage-roles", stage);
         // Add your logic for managing roles
     }
 
@@ -59,7 +59,7 @@ public class AdminDashboardController {
         // Placeholder: Navigate to the Inventory Management screen
         Stage stage = (Stage) inventoryManagementButton.getScene().getWindow();
         // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
-        Navigation.navigateTo("admin/manageInventory-view.fxml", stage);
+        Navigation.navigateTo("admin/manage-inventory", stage);
         // Add your logic for managing roles
         // Integrate with your Inventory Management system (e.g., Square API) here.
     }
@@ -69,7 +69,10 @@ public class AdminDashboardController {
     private void handleSettings() {
         // Placeholder: Navigate to the Inventory Management screen
         System.out.println("System Settings clicked");
-        showAlert("System Settings", "You can now manage system settings.");
+        Stage stage = (Stage) settingsButton.getScene().getWindow();
+        // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
+        Navigation.navigateTo("admin/manage-settings", stage);
+        // Add your logic for managing roles
         // Integrate with your Inventory Management system (e.g., Square API) here.
     }
 
@@ -85,7 +88,10 @@ public class AdminDashboardController {
     @FXML
     private void handleGenerateReport() {
         System.out.println("Generate Reports clicked");
-        showAlert("Generate Reports", "You can now manage generated reports.");
+        Stage stage = (Stage) GenerateReportsButton.getScene().getWindow();
+        // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
+        Navigation.navigateTo("admin/manage-reports", stage);
+        // Add your logic for managing roles
         // Integrate with your Inventory Management system (e.g., Square API) here.
     }
 

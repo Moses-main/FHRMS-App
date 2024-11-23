@@ -25,7 +25,7 @@ public class RoutesMap {
 
     public Optional<String> getRoute(String route) {
 
-        String foundRoute=routes.get(route);
+        String foundRoute = routes.get(route);
         return Optional.of(foundRoute);
     }
 
