@@ -16,7 +16,7 @@
     </padding>
 
    <HBox alignment="CENTER_RIGHT" spacing="10.0" prefWidth="600">
-        <Button text="Back to Dashboard" fx:id="backButton" onAction="#handleBackToDashboard"
+        <Button text="Back to Dashboard" fx:id="backButton" 
                 style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-font-weight: bold;" />
     </HBox>
 
