@@ -1,5 +1,4 @@
 package org.example.fhrms;
-package org.example.fhrms;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
