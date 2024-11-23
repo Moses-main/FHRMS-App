@@ -5,6 +5,11 @@
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.fhrms.admin.ManageRolesController" style="-fx-background-color: #f8f9fa;">
     <VBox alignment="CENTER" spacing="20" prefWidth="800" prefHeight="600" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
+      <HBox alignment="CENTER_RIGHT" spacing="10.0" prefWidth="600">
+        <Button text="Back to Dashboard" fx:id="backButton" 
+                style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-font-weight: bold;" />
+    </HBox>
+
         <Label text="Manage Roles" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
         <TableView fx:id="rolesTable" prefWidth="700" prefHeight="400">
             <columns>
