@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.fhrms.admin.SettingsController" style="-fx-background-color: #f8f9fa;">
+    <VBox alignment="CENTER" spacing="20" prefWidth="800" prefHeight="600" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
+        <Label text="Settings" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+        <VBox spacing="10" alignment="CENTER" prefWidth="700">
+            <HBox spacing="10">
+                <Label text="Change Password:" style="-fx-font-size: 16px; -fx-text-fill: #2c3e50;" />
+                <PasswordField fx:id="passwordField" prefWidth="300" />
+            </HBox>
+            <HBox spacing="10">
+                <Label text="Confirm Password:" style="-fx-font-size: 16px; -fx-text-fill: #2c3e50;" />
+                <PasswordField fx:id="confirmPasswordField" prefWidth="300" />
+            </HBox>
+            <HBox spacing="10">
+                <Label text="Update Email:" style="-fx-font-size: 16px; -fx-text-fill: #2c3e50;" />
+                <TextField fx:id="emailField" prefWidth="300" />
+            </HBox>
+        </VBox>
+        <Button text="Save Changes" onAction="#handleSaveSettings" style="-fx-background-color: #27ae60; -fx-text-fill: white;" />
+    </VBox>
+</AnchorPane>
