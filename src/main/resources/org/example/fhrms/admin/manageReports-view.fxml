@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.fhrms.admin.ReportsController" style="-fx-background-color: #f8f9fa;">
+    <VBox alignment="CENTER" spacing="20" prefWidth="800" prefHeight="600" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
+        <Label text="Reports" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+        <TableView fx:id="reportsTable" prefWidth="700" prefHeight="400">
+            <columns>
+                <TableColumn text="Report ID" fx:id="reportIdColumn" />
+                <TableColumn text="Report Type" fx:id="reportTypeColumn" />
+                <TableColumn text="Date Generated" fx:id="dateColumn" />
+            </columns>
+        </TableView>
+        <HBox alignment="CENTER" spacing="10">
+            <Button text="Generate New Report" onAction="#handleGenerateReport" style="-fx-background-color: #3498db; -fx-text-fill: white;" />
+            <Button text="Download Selected Report" onAction="#handleDownloadReport" style="-fx-background-color: #2ecc71; -fx-text-fill: white;" />
+        </HBox>
+    </VBox>
+</AnchorPane>
