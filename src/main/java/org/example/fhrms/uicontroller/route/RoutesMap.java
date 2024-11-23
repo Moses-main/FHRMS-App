@@ -13,7 +13,9 @@ public class RoutesMap {
         routes.put("chef", "chef/chef-view.fxml");
         routes.put("admin", "admin/admin-view.fxml");
         routes.put("waiter", "waiter/waiter-view.fxml");
-        routes.put("user", "user/user-view.fxml");
+
+        // ACCESSIBLE BY ADMIN ALONE
+        routes.put("manage-users", "admin/manageUsers-view.fxml");
         // routes.put("admin/dashboard", "chef/chef-view.fxml");
     }
 
