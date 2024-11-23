@@ -90,10 +90,10 @@ public class AdminDashboardController {
     @FXML
     private void handleGenerateReport() {
         System.out.println("Generate Reports clicked");
-        Stage stage = (Stage) GenerateReportsButton.getScene().getWindow();
-        // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
-        Navigation.navigateTo("admin/manage-reports", stage);
-        // Add your logic for managing roles
+        // Stage stage = (Stage) GenerateReportsButton.getScene().getWindow();
+        // // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
+        // Navigation.navigateTo("admin/manage-reports", stage);
+        // // Add your logic for managing roles
         Stage stage = (Stage) GenerateReportsButton.getScene().getWindow();
         // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
         Navigation.navigateTo("admin/manage-reports", stage);
