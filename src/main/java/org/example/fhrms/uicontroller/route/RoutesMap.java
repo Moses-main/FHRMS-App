@@ -21,6 +21,7 @@ public class RoutesMap {
         routes.put("admin/manage-inventory", "admin/manageInventory-view.fxml");
         routes.put("admin/manage-settings", "admin/manageSettings-view.fxml");
         routes.put("admin/manage-reports", "admin/manageReports-view.fxml");
+
     }
 
     public Optional<String> getRoute(String route) {
