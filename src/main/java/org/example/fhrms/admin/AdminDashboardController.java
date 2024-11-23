@@ -35,7 +35,11 @@ public class AdminDashboardController {
     @FXML
     private void handleManageUsers() {
         System.out.println("Manage Users clicked");
-        showAlert("Manage Users", "You can now add, update, or delete user");
+        // showAlert("Manage Users", "You can now add, update, or delete user");
+
+        Stage stage = (Stage) manageUsersButton.getScene().getWindow();
+        // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
+        Navigation.navigateTo("admin/manageUsers-view.fxml", stage);
         // Add your logic for managing users
     }
 
@@ -43,7 +47,9 @@ public class AdminDashboardController {
     @FXML
     private void handleManageRoles() {
         System.out.println("Manage Roles clicked");
-        showAlert("Manage Roles", "You can now manage inventory and stock");
+        Stage stage = (Stage) manageRolesButton.getScene().getWindow();
+        // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
+        Navigation.navigateTo("admin/manageRoles-view.fxml", stage);
         // Add your logic for managing roles
     }
 
@@ -51,8 +57,10 @@ public class AdminDashboardController {
     @FXML
     private void handleInventoryManagement() {
         // Placeholder: Navigate to the Inventory Management screen
-        System.out.println("Inventory Management clicked");
-        showAlert("Inventory Management", "You can now manage inventory and stock.");
+        Stage stage = (Stage) inventoryManagementButton.getScene().getWindow();
+        // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
+        Navigation.navigateTo("admin/manageInventory-view.fxml", stage);
+        // Add your logic for managing roles
         // Integrate with your Inventory Management system (e.g., Square API) here.
     }
 
@@ -69,7 +77,8 @@ public class AdminDashboardController {
     @FXML
     private void handleLogout() {
         AuthService.logoutUser();
-        if(!AuthService.getAuthService().isUserAuthenticated()) goToLogin();
+        if (!AuthService.getAuthService().isUserAuthenticated())
+            goToLogin();
         // Add your logic for logout
     }
 
@@ -91,6 +100,6 @@ public class AdminDashboardController {
 
     private void goToLogin() {
         Stage stage = (Stage) adminAnchorPane.getScene().getWindow();
-        Navigation.navigateTo("login",stage);
+        Navigation.navigateTo("login", stage);
     }
 }
