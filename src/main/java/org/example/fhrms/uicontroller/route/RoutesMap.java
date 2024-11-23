@@ -18,7 +18,8 @@ public class RoutesMap {
         routes.put("admin/manage-users", "admin/manageUsers-view.fxml");
         routes.put("admin/manage-roles", "admin/manageRoles-view.fxml");
         routes.put("admin/manage-inventory", "admin/manageInventory-view.fxml");
-
+        routes.put("admin/manage-settings", "admin/manageSettings-view.fxml");
+        routes.put("admin/manage-reports", "admin/manageReports-view.fxml");
     }
 
     public String getRoute(String route) {
