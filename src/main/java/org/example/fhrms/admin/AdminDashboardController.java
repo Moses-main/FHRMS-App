@@ -23,6 +23,9 @@ public class AdminDashboardController {
     @FXML
     private Button inventoryManagementButton;
 
+    @FXML
+    private Button GenerateReportsButton;
+
     // Event handler for the "Manage Users" button
     @FXML
     private void handleManageUsers() {
@@ -49,11 +52,13 @@ public class AdminDashboardController {
     }
 
     // Event handler for the "Settings" button
-    // @FXML
-    // private void handleSettings() {
-    // System.out.println("Settings clicked");
-    // // Add your logic for settings
-    // }
+    @FXML
+    private void handleSettings() {
+        // Placeholder: Navigate to the Inventory Management screen
+        System.out.println("System Settings clicked");
+        showAlert("System Settings", "You can now manage sytem settings.");
+        // Integrate with your Inventory Management system (e.g., Square API) here.
+    }
 
     // Event handler for the "Logout" button
     @FXML
@@ -61,6 +66,13 @@ public class AdminDashboardController {
         System.out.println("Logout clicked");
         showAlert("Logout", "You have been logged out");
         // Add your logic for logout
+    }
+
+    @FXML
+    private void handleGenerateReport() {
+        System.out.println("Generate Reports clicked");
+        showAlert("Generate Reports", "You can now manage generated reports.");
+        // Integrate with your Inventory Management system (e.g., Square API) here.
     }
 
     // Utility method to show alerts for demonstration
