@@ -1,4 +1,5 @@
 package org.example.fhrms;
+package org.example.fhrms;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +11,7 @@ import java.io.IOException;
 import org.example.fhrms.service.DatabaseInitializer;
 import org.kordamp.bootstrapfx.BootstrapFX;
 
-// import java.io.IOException;
+import java.io.IOException;
 
 public class HelloApplication extends Application {
     @Override
