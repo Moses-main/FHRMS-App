@@ -4,15 +4,23 @@
 
 <AnchorPane
         fx:id="waiterAnchorPane"
-        xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.fhrms.waiter.WaiterDashboardController" style="-fx-background-color: #f8f9fa;">
-    <VBox alignment="CENTER" spacing="10" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
+        xmlns:fx="http://javafx.com/javafx"
+        fx:controller="org.example.fhrms.waiter.WaiterDashboardController"
+        style="-fx-background-color: #f8f9fa;">
+
+    <VBox alignment="CENTER" spacing="20"
+          AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0"
+          AnchorPane.topAnchor="10.0" AnchorPane.bottomAnchor="10.0">
+
         <!-- Dashboard Header -->
-        <Label text="Waiter Dashboard" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
-        <Separator orientation="HORIZONTAL" style="-fx-background-color: #dee2e6;" />
+        <Label text="Waiter Dashboard"
+               style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
+        <Separator orientation="HORIZONTAL" style="-fx-background-color: #dee2e6;" prefWidth="800" />
 
         <!-- Pending Orders Section -->
-        <VBox spacing="10">
-            <Label text="Pending Orders" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+        <VBox spacing="10" style="-fx-padding: 10;">
+            <Label text="Pending Orders"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
             <TableView fx:id="pendingOrdersTable" prefHeight="200">
                 <columns>
                     <TableColumn text="Order ID" fx:id="orderIdColumn" prefWidth="100" />
@@ -24,8 +32,9 @@
         </VBox>
 
         <!-- Completed Orders Section -->
-        <VBox spacing="10">
-            <Label text="Completed Orders" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+        <VBox spacing="10" style="-fx-padding: 10;">
+            <Label text="Completed Orders"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
             <TableView fx:id="completedOrdersTable" prefHeight="200">
                 <columns>
                     <TableColumn text="Order ID" fx:id="completedOrderIdColumn" prefWidth="100" />
@@ -36,8 +45,26 @@
             </TableView>
         </VBox>
 
+        <!-- Create Order Section -->
+        <VBox spacing="10" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-border-color: #bdc3c7; -fx-border-radius: 5;">
+            <Label text="Create New Order"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+            <GridPane hgap="10" vgap="10">
+                <Label text="Order ID:" style="-fx-font-size: 14px;" />
+                <TextField fx:id="orderIdField" GridPane.columnIndex="1" />
+                <Label text="Customer Name:" style="-fx-font-size: 14px;" GridPane.rowIndex="1" />
+                <TextField fx:id="customerNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label text="Items:" style="-fx-font-size: 14px;" GridPane.rowIndex="2" />
+                <TextField fx:id="itemsField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            </GridPane>
+            <Button fx:id="createOrderButton" text="Create Order"
+                    style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"
+                    onAction="#createOrder" />
+        </VBox>
+
         <!-- Logout Button -->
-        <Button
-                fx:id="logoutButton" text="Logout" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" onAction="#logout" />
+        <Button fx:id="logoutButton" text="Logout"
+                style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 10 20;"
+                onAction="#logout" />
     </VBox>
 </AnchorPane>

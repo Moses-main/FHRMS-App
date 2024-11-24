@@ -16,8 +16,8 @@ public class Navigation {
             stage.getScene().setRoot(root);
             stage.show();
         } catch (Exception e) {
-            System.out.println("Route des not exist");
-           // e.printStackTrace();
+            System.out.println("Route "+route+" deos not exist");
+           e.printStackTrace();
         }
     }
 }

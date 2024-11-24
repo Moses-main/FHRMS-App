@@ -6,7 +6,6 @@ import org.example.fhrms.model.Order;
 import org.example.fhrms.model2.Role;
 import org.example.fhrms.model2.User;
 
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
@@ -57,7 +56,7 @@ public class db {
         String id= UUID.randomUUID().toString();
         Order savedOrder=new Order(
           order.getId(),
-          order.getFoodItemAndNumber()
+                (Pair<FoodItem, Integer>) order.getFoodItemAndNumberContainer()
         );
         OrderDB.put(id,savedOrder);
         return true;
