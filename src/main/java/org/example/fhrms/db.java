@@ -15,6 +15,7 @@ public class db {
     private final HashMap<String, User> DB=new HashMap<String,User>();
     private final HashMap<String, FoodItem> FoodItemDB=new HashMap<>();
     private final HashMap<String, Order> OrderDB=new HashMap<>();
+    private final HashMap<String, Order> CompletedOrderDB=new HashMap<>();
 
     private static db data=new db();
 
@@ -52,18 +53,21 @@ public class db {
         return Optional.empty();
     }
 
-    public boolean saveOrder(Order order) {
-        String id= UUID.randomUUID().toString();
-        Order savedOrder=new Order(
-          order.getId(),
-                (Pair<FoodItem, Integer>) order.getFoodItemAndNumberContainer()
-        );
-        OrderDB.put(id,savedOrder);
-        return true;
+    public void saveOrder(Order order) {
+        OrderDB.put(order.getOrderId(),order);
+    }
+
+    public void moveToCompleted(Order order){
+        String orderId=order.getOrderId();
+        OrderDB.remove(orderId);
+        CompletedOrderDB.put(orderId,order);
     }
 
     public List<Order> getAllOrders() {
         return OrderDB.values().stream().toList();
+    }
+    public List<Order> getAllCompletedOrders() {
+        return CompletedOrderDB.values().stream().toList();
     }
 
     public void removeOrder(String id) {

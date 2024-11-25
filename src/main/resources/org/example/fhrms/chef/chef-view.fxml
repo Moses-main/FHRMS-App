@@ -1,37 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: #f0f4f8;" fx:controller="org.example.fhrms.chef.ChefDashboardController">
-    <VBox alignment="TOP_CENTER" spacing="15" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
-        <!-- Title Label -->
-        <Label text="Chef Dashboard" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
+<AnchorPane fx:id="chefAnchorPane" xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.fhrms.chef.ChefDashboardController"
+            style="-fx-background-color: #f7f7f7;">
 
-        <!-- Order List (Pending Orders) -->
-        <ListView fx:id="ordersList" prefHeight="200" prefWidth="300">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Order 1"/>
-                    <String fx:value="Order 2"/>
-                    <String fx:value="Order 3"/>
-                </FXCollections>
-            </items>
-        </ListView>
+    <VBox alignment="CENTER" spacing="20" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
+        <!-- Dashboard Header -->
+        <Label text="Chef Dashboard" style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 20px;"/>
+        <Separator style="-fx-background-color: #dfe6e9;"/>
 
-        <!-- Buttons for Order Processing -->
-        <HBox spacing="20" alignment="CENTER">
-            <Button text="Mark as In Progress" onAction="#markInProgress" fx:id="markInProgressButton" />
-            <Button text="Mark as Completed" onAction="#markCompleted" fx:id="markCompletedButton" />
-        </HBox>
+        <!-- Pending Orders Section -->
+        <VBox alignment="CENTER" spacing="10">
+            <Label text="Pending Orders" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #34495e;"/>
+            <TableView fx:id="pendingOrdersTable" prefHeight="300">
+                <columns>
+                    <TableColumn text="Order ID" fx:id="orderIdColumn" prefWidth="100"/>
+                    <TableColumn text="Customer Name" fx:id="customerNameColumn" prefWidth="200"/>
+                    <TableColumn text="Items" fx:id="itemsColumn" prefWidth="300"/>
+                    <TableColumn text="Actions" fx:id="actionsColumn" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </VBox>
 
-        <!-- Inventory Check Button -->
-        <Button text="Check Inventory" onAction="#checkInventory" fx:id="checkInventoryButton" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;" />
+        <!-- Completed Orders Section -->
+        <VBox alignment="CENTER" spacing="10">
+            <Label text="Completed Orders" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #34495e;"/>
+            <TableView fx:id="completedOrdersTable" prefHeight="300">
+                <columns>
+                    <TableColumn text="Order ID" fx:id="completedOrderIdColumn" prefWidth="100"/>
+                    <TableColumn text="Customer Name" fx:id="completedCustomerNameColumn" prefWidth="200"/>
+                    <TableColumn text="Items" fx:id="completedItemsColumn" prefWidth="300"/>
+                    <TableColumn text="Cooked Time" fx:id="cookedTimeColumn" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </VBox>
 
         <!-- Logout Button -->
-        <Button text="Logout" onAction="#logout" fx:id="logoutButton" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold;" />
+        <Button fx:id="logoutButton" text="Logout" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 10px; -fx-font-size: 14px;" onAction="#logout"/>
     </VBox>
 </AnchorPane>
