@@ -1,15 +1,37 @@
 package org.example.fhrms.admin;
 
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.stage.Stage;
 import javafx.scene.control.Button;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.AnchorPane;
+import org.example.fhrms.db;
+import org.example.fhrms.model.Order;
 import org.example.fhrms.service.AuthService;
 import org.example.fhrms.uicontroller.route.Navigation;
 
+import java.util.List;
+
 public class AdminDashboardController {
+
+    @FXML
+    private Label totalUsersLabel;
+
+    @FXML
+    private Label activeSessionsLabel;
+
+    @FXML
+    private Label totalRevenueLabel;
+
+    @FXML
+    private Label pendingRequestsLabel;
+
+    @FXML
+    private Button analyticsButton;
 
     @FXML
     private Button manageUsersButton;
@@ -18,7 +40,8 @@ public class AdminDashboardController {
     private Button manageRolesButton;
 
     @FXML
-    private AnchorPane adminAnchorPane;
+    private Button inventoryManagementButton;
+
     @FXML
     private Button settingsButton;
 
@@ -26,96 +49,119 @@ public class AdminDashboardController {
     private Button logoutButton;
 
     @FXML
-    private Button inventoryManagementButton;
-
-    @FXML
     private Button GenerateReportsButton;
 
     @FXML
-    private Button analyticsButton;
+    private AnchorPane adminAnchorPane;
+
+    @FXML
+    private TableView<Order> orderTableView;
+
+    @FXML
+    private TableColumn<Order, String> orderIdColumn;
+
+    @FXML
+    private TableColumn<Order, String> foodItemColumn;
+
+    @FXML
+    private TableColumn<Order, Integer> quantityColumn;
+
+    @FXML
+    private TableColumn<Order, String> statusColumn;
+
+    private void loadOrders() {
+        List<Order> orders = database.getAllOrders();
+
+        // Populate table columns
+        orderIdColumn.setCellValueFactory(order -> new SimpleStringProperty(order.getValue().getId()));
+        foodItemColumn.setCellValueFactory(
+                order -> new SimpleStringProperty(order.getValue().getFoodItemAndNumberContainer().getKey().getName()));
+        quantityColumn.setCellValueFactory(
+                order -> new SimpleIntegerProperty(order.getValue().getFoodItemAndNumberContainer().getValue())
+                        .asObject());
+        statusColumn.setCellValueFactory(
+                order -> new SimpleStringProperty(order.getValue().isCompleted() ? "Completed" : "Pending"));
+
+        // Populate table data
+        orderTableView.getItems().setAll(orders);
+    }
+
+    private final db database = db.getInstance();
+
+    @FXML
+    public void initialize() {
+        loadDashboardData();
+        loadOrders();
+    }
+
+    private void loadDashboardData() {
+        // Fetch total users
+        int totalUsers = database.getDB().size();
+        totalUsersLabel.setText("Total Users: " + totalUsers);
+
+        // Fetch active sessions (dummy implementation for now)
+        int activeSessions = 25; // You could integrate session tracking logic here.
+        activeSessionsLabel.setText("Active Sessions: " + activeSessions);
+
+        // Fetch total revenue (assuming each order has a cost, calculate it)
+        double totalRevenue = calculateTotalRevenue();
+        totalRevenueLabel.setText("Total Revenue: $" + totalRevenue);
+
+        // Fetch pending requests (orders not yet fulfilled)
+        long pendingRequests = database.getAllOrders().stream().filter(order -> !order.isCompleted()).count();
+        pendingRequestsLabel.setText("Pending Requests: " + pendingRequests);
+    }
+
+    private double calculateTotalRevenue() {
+        List<Order> orders = database.getAllOrders();
+        return orders.stream()
+                .mapToDouble(order -> order.getFoodItemAndNumberContainer().getKey().getPrice()
+                        * order.getFoodItemAndNumberContainer().getValue())
+                .sum();
+    }
 
     @FXML
     private void handleAnalytics() {
         Stage stage = (Stage) analyticsButton.getScene().getWindow();
-        // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
         Navigation.navigateTo("admin/analytics", stage);
-        // Add your logic for managing users
     }
 
-    // Event handler for the "Manage Users" button
     @FXML
     private void handleManageUsers() {
-        System.out.println("Manage Users clicked");
-        // showAlert("Manage Users", "You can now add, update, or delete user");
-
         Stage stage = (Stage) manageUsersButton.getScene().getWindow();
-        // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
         Navigation.navigateTo("admin/manage-users", stage);
-        // Add your logic for managing users
     }
 
-    // Event handler for the "Manage Roles" button
     @FXML
     private void handleManageRoles() {
-        System.out.println("Manage Roles clicked");
         Stage stage = (Stage) manageRolesButton.getScene().getWindow();
-        // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
         Navigation.navigateTo("admin/manage-roles", stage);
-        // Navigation.navigateTo("admin/manage-roles", stage);
-        // Add your logic for managing roles
     }
 
-    // Event handler for the "Inventory Management" button
     @FXML
     private void handleInventoryManagement() {
-        // Placeholder: Navigate to the Inventory Management screen
         Stage stage = (Stage) inventoryManagementButton.getScene().getWindow();
-        // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
-        // Navigation.navigateTo("admin/manage-inventory", stage);
         Navigation.navigateTo("admin/manage-inventory", stage);
-        // Add your logic for managing roles
-        // Integrate with your Inventory Management system (e.g., Square API) here.
     }
 
-    // Event handler for the "Settings" button
     @FXML
     private void handleSettings() {
-        // Placeholder: Navigate to the Inventory Management screen
-        System.out.println("System Settings clicked");
         Stage stage = (Stage) settingsButton.getScene().getWindow();
-        // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
         Navigation.navigateTo("admin/manage-settings", stage);
-        // Add your logic for managing roles
-        // Integrate with your Inventory Management system (e.g., Square API) here.
-    }
-
-    // Event handler for the "Logout" button
-    @FXML
-    private void handleLogout() {
-        AuthService.logoutUser();
-        if (!AuthService.getAuthService().isUserAuthenticated())
-            goToLogin();
-        // Add your logic for logout
     }
 
     @FXML
     private void handleGenerateReport() {
-        System.out.println("Generate Reports clicked");
-        // // Add your logic for managing roles
         Stage stage = (Stage) GenerateReportsButton.getScene().getWindow();
-        // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
         Navigation.navigateTo("admin/manage-reports", stage);
-        // Add your logic for managing roles
-        // Integrate with your Inventory Management system (e.g., Square API) here.
     }
 
-    // Utility method to show alerts for demonstration
-    private void showAlert(String title, String content) {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(content);
-        alert.showAndWait();
+    @FXML
+    private void handleLogout() {
+        AuthService.logoutUser();
+        if (!AuthService.getAuthService().isUserAuthenticated()) {
+            goToLogin();
+        }
     }
 
     private void goToLogin() {
