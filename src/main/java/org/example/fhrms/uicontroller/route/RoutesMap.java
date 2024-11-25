@@ -10,7 +10,7 @@ public class RoutesMap {
     private RoutesMap() {
         routes.put("signup", "auth/signup-view.fxml");
         routes.put("login", "auth/login-view.fxml");
-        routes.put("dashboard", "dashboard/dashboard-view.fxml");
+        // routes.put("dashboard", "dashboard/dashboard-view.fxml");
         routes.put("chef", "chef/chef-view.fxml");
         routes.put("admin", "admin/admin-view.fxml");
         routes.put("waiter", "waiter/waiter-view.fxml");
@@ -21,7 +21,7 @@ public class RoutesMap {
         routes.put("admin/manage-inventory", "admin/manageInventory-view.fxml");
         routes.put("admin/manage-settings", "admin/manageSettings-view.fxml");
         routes.put("admin/manage-reports", "admin/manageReports-view.fxml");
-        routes.put("admin/analytics", "admin/Analytics-view.fxml");
+        routes.put("admin/analytics", "admin/adminAnalytics-view.fxml");
 
     }
 

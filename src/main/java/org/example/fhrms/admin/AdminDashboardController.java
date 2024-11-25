@@ -31,6 +31,17 @@ public class AdminDashboardController {
     @FXML
     private Button GenerateReportsButton;
 
+    @FXML
+    private Button analyticsButton;
+
+    @FXML
+    private void handleAnalytics() {
+        Stage stage = (Stage) analyticsButton.getScene().getWindow();
+        // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
+        Navigation.navigateTo("admin/analytics", stage);
+        // Add your logic for managing users
+    }
+
     // Event handler for the "Manage Users" button
     @FXML
     private void handleManageUsers() {
@@ -50,7 +61,7 @@ public class AdminDashboardController {
         Stage stage = (Stage) manageRolesButton.getScene().getWindow();
         // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
         Navigation.navigateTo("admin/manage-roles", stage);
-        Navigation.navigateTo("admin/manage-roles", stage);
+        // Navigation.navigateTo("admin/manage-roles", stage);
         // Add your logic for managing roles
     }
 
@@ -60,7 +71,7 @@ public class AdminDashboardController {
         // Placeholder: Navigate to the Inventory Management screen
         Stage stage = (Stage) inventoryManagementButton.getScene().getWindow();
         // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
-        Navigation.navigateTo("admin/manage-inventory", stage);
+        // Navigation.navigateTo("admin/manage-inventory", stage);
         Navigation.navigateTo("admin/manage-inventory", stage);
         // Add your logic for managing roles
         // Integrate with your Inventory Management system (e.g., Square API) here.

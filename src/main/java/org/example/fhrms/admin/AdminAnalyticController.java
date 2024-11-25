@@ -1,10 +1,14 @@
 package org.example.fhrms.admin;
 
+import org.example.fhrms.uicontroller.route.Navigation;
+
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class AdminAnalyticController {
 
@@ -13,6 +17,9 @@ public class AdminAnalyticController {
 
     @FXML
     private BarChart<String, Number> revenueBarChart;
+
+    @FXML
+    private Button backButton;
 
     /**
      * Initializes the view components.
@@ -57,6 +64,11 @@ public class AdminAnalyticController {
     private void handleBackToDashboard() {
         // Navigate back to the admin dashboard
         System.out.println("Back to Dashboard clicked");
+
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
+        Navigation.navigateTo("admin", stage);
+        // Add your logic for managing users
     }
 
     /**

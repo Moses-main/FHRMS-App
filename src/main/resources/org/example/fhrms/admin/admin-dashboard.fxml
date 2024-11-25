@@ -20,12 +20,12 @@
     <center>
         <VBox spacing="10" style="-fx-padding: 20;">
             <TableView fx:id="userTable" style="-fx-pref-width: 800px;">
-                <columns>
+                <!-- <columns>
                     <TableColumn fx:id="columnName" text="Name" prefWidth="200"/>
                     <TableColumn fx:id="columnEmail" text="Email" prefWidth="300"/>
                     <TableColumn fx:id="columnRole" text="Role" prefWidth="200"/>
                     <TableColumn fx:id="columnStatus" text="Status" prefWidth="100"/>
-                </columns>
+                </columns> -->
             </TableView>
 
             <Button text="Add New User" onAction="#handleAddUser" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />

@@ -21,6 +21,8 @@
             <HBox alignment="CENTER" spacing="20" style="-fx-background-color: #ecf0f1; -fx-padding: 20px; -fx-background-radius: 10;">
             <Button fx:id="GenerateReportsButton"   text="Generate Reports" prefWidth="200" prefHeight="50" style="-fx-background-color: #1abc9c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;" onAction="#handleGenerateReport"  />
             <Button fx:id="settingsButton"  text="System Settings" prefWidth="200" prefHeight="50" style="-fx-background-color: #1abc9c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;"  onAction="#handleSettings" />
+
+             <Button fx:id="analyticsButton"  text="Analytics" prefWidth="200" prefHeight="50" style="-fx-background-color: #1abc9c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;"  onAction="#handleAnalytics" />
         </HBox>
 
        <HBox alignment="CENTER" spacing="40" style="-fx-background-color: #ecf0f1; -fx-padding: 20px; -fx-background-radius: 10;">
