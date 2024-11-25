@@ -109,13 +109,14 @@ Follow these steps to set up and run the project locally:
    ```bash
    git clone https://github.com/yourusername/restaurant-management-system.git
    cd restaurant-management-system
-
-    Set up the MySQL database:
-
-    Create a new database restaurant_db and configure the necessary tables. You can find the database schema in src/main/resources/db/schema.sql.
    ```
 
-CREATE DATABASE restaurant_db;
+2. **Set up the MySQL database:**
+
+   Create a new database restaurant_db and configure the necessary tables. You can find the database schema in src/main/resources/db/schema.sql.
+
+3. **CREATE DATABASE restaurant_db**;
+
 USE restaurant_db;
 -- Execute the schema script to create the required tables
 SOURCE src/main/resources/db/schema.sql;
@@ -128,63 +129,60 @@ db.url=jdbc:mysql://localhost:3306/restaurant_db
 db.username=root
 db.password=yourpassword
 
-Build the project using Maven:
+4. **Build the project using Maven:**
 
-Run the following command to compile the project:
+- Run the following command to compile the project:
 
-mvn clean install
+`mvn clean install`
 
-Run the Application:
+- Run the Application:
 
 Use the following command to launch the JavaFX application:
 
-    mvn javafx:run
+`mvn javafx:run`
 
-Running the Application
+5. **Running the Application**
 
-    Login Screen:
-        Upon startup, the system will display a login screen where users (Admins, Waiters, or Chefs) can authenticate based on their roles.
+   - Login Screen:
+     Upon startup, the system will display a login screen where users (Admins, Waiters, or Chefs) can authenticate based on their roles.
 
-    Role-Based Dashboard:
-        After logging in, users will be redirected to their respective dashboards:
-            Admin Dashboard: For managing users, inventory, and generating reports.
-            - Use the input below for both the username and password
-            ```
-            test@admin
-            ```
-            Waiter Dashboard: For creating and tracking food orders.
-            ```
-            test@chef
-            ```
-            Chef Dashboard: For viewing and updating food orders.
-            ```
-            test@waiter
-            ```
+   - Role-Based Dashboard:
+     After logging in, users will be redirected to their respective dashboards:
 
-    Navigating through the app:
-        Admins can manage users, inventory, and generate reports.
-        Waiters can create orders and track their status.
-        Chefs can manage inventory usage and update the status of orders.
+     - Admin Dashboard: For managing users, inventory, and generating reports.
+       Use the input below for both the username and password
+       `test@admin`
 
-Contributing
+     - Waiter Dashboard: For creating and tracking food orders.
+       `test@chef`
+
+     - Chef Dashboard: For viewing and updating food orders.
+       `test@waiter`
+
+   - Navigating through the app:
+     Admins can manage users, inventory, and generate reports.
+     Waiters can create orders and track their status.
+     Chefs can manage inventory usage and update the status of orders.
+
+6. **Contributing**
 
 We welcome contributions to improve the functionality of the Restaurant Management System. Here’s how you can contribute:
 
-    Fork the repository: Click the "Fork" button at the top of the page.
-    Create a new branch:
+- Fork the repository: Click the "Fork" button at the top of the page.
+  Create a new branch:
 
-git checkout -b feature-name
+- git checkout -b feature-name
 
-Make your changes and commit them:
+#### Make your changes and commit them:
 
-git commit -m "Added new feature"
+- git commit -m "Added new feature"
 
-Push to the branch:
+### Push to the branch:
 
-    git push origin feature-name
+- git push origin feature-name
 
-    Create a pull request from your forked repository.
+### Create a pull request from your forked repository.
 
-License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
