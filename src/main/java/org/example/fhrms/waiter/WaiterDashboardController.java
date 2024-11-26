@@ -6,6 +6,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.example.fhrms.db;
+import org.example.fhrms.model.Order;
 import org.example.fhrms.service.AuthService;
 import org.example.fhrms.uicontroller.route.Navigation;
 
@@ -96,21 +98,18 @@ public class WaiterDashboardController {
     private void loadPendingOrders() {
         // Dummy data
         pendingOrdersTable.getItems().addAll(
-                new Order("101", "Alice", "Pizza, Coke"),
-                new Order("102", "Bob", "Burger, Fries"));
+               db.getInstance().getAllOrders());
     }
 
     private void loadCompletedOrders() {
         // Dummy data
         completedOrdersTable.getItems().addAll(
-                new Order("201", "Charlie", "Pasta", "12:30 PM"),
-                new Order("202", "David", "Steak, Wine", "1:00 PM"));
+             db.getInstance().getAllCompletedOrders());
     }
 
     private void addActionButtons() {
         actionsColumn.setCellFactory(column -> new TableCell<>() {
             private final Button serveButton = new Button("Mark as Served");
-
             {
                 serveButton.setStyle("-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-size: 12px;");
                 serveButton.setOnAction(event -> {
@@ -119,9 +118,9 @@ public class WaiterDashboardController {
 
                     // Move the order to completedOrdersTable
                     moveOrderToCompleted(order);
-
                     // Remove the order from pendingOrdersTable
                     pendingOrdersTable.getItems().remove(order);
+                    db.getInstance().moveToCompleted(order);
                 });
             }
 
@@ -156,14 +155,15 @@ public class WaiterDashboardController {
             return;
         }
 
+        Order order=new Order(orderId, customerName, items);
         // Add order to pending orders
-        pendingOrdersTable.getItems().add(new Order(orderId, customerName, items));
+        pendingOrdersTable.getItems().add(order);
 
         // Clear inputs
         orderIdField.clear();
         customerNameField.clear();
         itemsField.clear();
-
+        db.getInstance().saveOrder(order);
         showAlert("Success", "Order created successfully!", Alert.AlertType.INFORMATION);
     }
 
@@ -181,42 +181,4 @@ public class WaiterDashboardController {
         alert.showAndWait();
     }
 
-    public static class Order {
-        private final String orderId;
-        private final String customerName;
-        private final String items;
-        private final SimpleStringProperty servedTime;
-
-        // Constructor for pending orders
-        public Order(String orderId, String customerName, String items) {
-            this.orderId = orderId;
-            this.customerName = customerName;
-            this.items = items;
-            this.servedTime = new SimpleStringProperty("");
-        }
-
-        // Constructor for completed orders
-        public Order(String orderId, String customerName, String items, String servedTime) {
-            this.orderId = orderId;
-            this.customerName = customerName;
-            this.items = items;
-            this.servedTime = new SimpleStringProperty(servedTime);
-        }
-
-        public String getOrderId() {
-            return orderId;
-        }
-
-        public String getCustomerName() {
-            return customerName;
-        }
-
-        public String getItems() {
-            return items;
-        }
-
-        public String getServedTime() {
-            return servedTime.get();
-        }
-    }
 }

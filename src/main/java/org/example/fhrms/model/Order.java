@@ -1,36 +1,42 @@
 package org.example.fhrms.model;
 
-import javafx.util.Pair;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-
+import javafx.beans.property.SimpleStringProperty;
 
 public class Order {
-    private String id;
-    private static HashMap<String, Food> orders = new HashMap<>();
-    private ArrayList<Pair<FoodItem,Integer>> FoodItemAndNumberContainer;
+    private final String orderId;
+    private final String customerName;
+    private final String items;
+    private final SimpleStringProperty cookedTime;
 
-    public Order(String id, Pair<FoodItem,Integer>... FoodItemAndNumber) {
-        this.id = id;
-        this.FoodItemAndNumberContainer = new ArrayList<>();
-        this.FoodItemAndNumberContainer.addAll(List.of(FoodItemAndNumber));
+    // Constructor for Pending Orders
+    public Order(String orderId, String customerName, String items) {
+        this.orderId = orderId;
+        this.customerName = customerName;
+        this.items = items;
+        this.cookedTime = new SimpleStringProperty("");
     }
 
-    public String getId() {
-        return id;
+    // Constructor for Completed Orders
+    public Order(String orderId, String customerName, String items, String cookedTime) {
+        this.orderId = orderId;
+        this.customerName = customerName;
+        this.items = items;
+        this.cookedTime = new SimpleStringProperty(cookedTime);
     }
 
-    public void addToFoodItemAndNumberContainer(FoodItem foodItem, int number) {
-        FoodItemAndNumberContainer.add(new Pair<>(foodItem,number));
-    }
-    public List<Pair<FoodItem,Integer>> getFoodItemAndNumberContainer() {
-        return FoodItemAndNumberContainer;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public Long totalPrice(){
-        return FoodItemAndNumberContainer.stream().mapToLong(item -> item.getValue().longValue()).sum();
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public String getItems() {
+        return items;
+    }
+
+    public String getCookedTime() {
+        return cookedTime.get();
     }
 }
