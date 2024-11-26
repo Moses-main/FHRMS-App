@@ -1,5 +1,7 @@
 package org.example.fhrms.admin;
 
+import org.example.fhrms.model2.Role;
+import org.example.fhrms.model2.RoleInfo;
 import org.example.fhrms.uicontroller.route.Navigation;
 
 import javafx.event.ActionEvent;
@@ -14,13 +16,13 @@ public class ManageRolesController {
     private Button backButton;
 
     @FXML
-    private TableView<?> rolesTable;
+    private TableView<RoleInfo> rolesTable;
 
     @FXML
-    private TableColumn<?, ?> roleNameColumn;
+    private TableColumn<RoleInfo, String> roleNameColumn;
 
     @FXML
-    private TableColumn<?, ?> descriptionColumn;
+    private TableColumn<RoleInfo, String> descriptionColumn;
 
     public void handleAddRole(ActionEvent event) {
         // Logic to add a role
