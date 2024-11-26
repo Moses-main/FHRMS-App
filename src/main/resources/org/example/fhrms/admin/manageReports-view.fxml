@@ -6,7 +6,7 @@
 <AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.fhrms.admin.ReportsController" style="-fx-background-color: #f8f9fa;">
     <VBox alignment="CENTER" spacing="20" prefWidth="800" prefHeight="600" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
       <HBox alignment="CENTER_RIGHT" spacing="10.0" prefWidth="600">
-        <Button text="Back to Dashboard" fx:id="backButton" 
+        <Button text="Back to Dashboard" fx:id="backButton"  onAction="#handleBackToDashboard"
                 style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-font-weight: bold;" />
     </HBox>
 
