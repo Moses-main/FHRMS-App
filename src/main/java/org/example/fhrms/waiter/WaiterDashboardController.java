@@ -13,8 +13,13 @@ import org.example.fhrms.uicontroller.route.Navigation;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class WaiterDashboardController {
+
+    @FXML
+    private Label infoMessageLabel;
 
     // TableViews
     @FXML
@@ -98,20 +103,21 @@ public class WaiterDashboardController {
     private void loadPendingOrders() {
         // Dummy data
         pendingOrdersTable.getItems().addAll(
-               db.getInstance().getAllOrders());
+                db.getInstance().getAllOrders());
     }
 
     private void loadCompletedOrders() {
         // Dummy data
         completedOrdersTable.getItems().addAll(
-             db.getInstance().getAllCompletedOrders());
+                db.getInstance().getAllCompletedOrders());
     }
 
     private void addActionButtons() {
         actionsColumn.setCellFactory(column -> new TableCell<>() {
             private final Button serveButton = new Button("Mark as Served");
             {
-                serveButton.setStyle("-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-size: 12px;");
+                serveButton.setStyle(
+                        "-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-size: 12px;");
                 serveButton.setOnAction(event -> {
                     // Get the selected order
                     Order order = getTableView().getItems().get(getIndex());
@@ -140,8 +146,7 @@ public class WaiterDashboardController {
         // Add order to completedOrdersTable with served time
         String currentTime = LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm a"));
         completedOrdersTable.getItems().add(
-                new Order(order.getOrderId(), order.getCustomerName(), order.getItems(), currentTime)
-        );
+                new Order(order.getOrderId(), order.getCustomerName(), order.getItems(), currentTime));
     }
 
     @FXML
@@ -151,11 +156,14 @@ public class WaiterDashboardController {
         String items = itemsField.getText();
 
         if (orderId.isEmpty() || customerName.isEmpty() || items.isEmpty()) {
-            showAlert("Validation Error", "Please fill all fields!", Alert.AlertType.ERROR);
+            infoMessageLabel.setText("Please fill all fields!");
+
+            // showAlert("Validation Error", "Please fill all fields!",
+            // Alert.AlertType.ERROR);
             return;
         }
 
-        Order order=new Order(orderId, customerName, items);
+        Order order = new Order(orderId, customerName, items);
         // Add order to pending orders
         pendingOrdersTable.getItems().add(order);
 
@@ -164,7 +172,10 @@ public class WaiterDashboardController {
         customerNameField.clear();
         itemsField.clear();
         db.getInstance().saveOrder(order);
-        showAlert("Success", "Order created successfully!", Alert.AlertType.INFORMATION);
+        infoMessageLabel.setText("Order created successfully!");
+
+        // showAlert("Success", "Order created successfully!",
+        // Alert.AlertType.INFORMATION);
     }
 
     @FXML

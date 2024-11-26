@@ -25,4 +25,24 @@
             <Button text="Delete Item" onAction="#handleDeleteItem" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" />
         </HBox>
     </VBox>
+
+
+
+    <!-- Create Order Section -->
+        <!-- <VBox spacing="10" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-border-color: #bdc3c7; -fx-border-radius: 5;">
+            <Label text="Create New Order"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+            <GridPane hgap="10" vgap="10">
+                <Label text="Item ID:" style="-fx-font-size: 14px;" />
+                <TextField fx:id="itemIdField" GridPane.columnIndex="1" />
+                <Label text="Customer Name:" style="-fx-font-size: 14px;" GridPane.rowIndex="1" />
+                <TextField fx:id="ItemsFIeld" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label text="Items:" style="-fx-font-size: 14px;" GridPane.rowIndex="2" />
+                <TextField fx:id="itemsField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            </GridPane>
+            <Button fx:id="createItemButton" text="Create Item"
+                    style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"
+                    onAction="#createItem" />  
+        </VBox> -->
+
 </AnchorPane>

@@ -8,11 +8,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+import org.example.fhrms.model.Inventory;
 
 public class InventoryManagementController {
 
     @FXML
     private Button backButton;
+
+    @FXML
+    private Button createItemButton;
 
     @FXML
     private TableView<?> inventoryTable;
@@ -47,5 +51,11 @@ public class InventoryManagementController {
         // Navigation.navigateTo("admin/admin-dashboard.fxml", stage);
         Navigation.navigateTo("admin", stage);
         // Add your logic for managing users
+    }
+
+    @FXML
+    private void createItem() {
+        // Add logic to create new item
+        System.out.println("New item create");
     }
 }

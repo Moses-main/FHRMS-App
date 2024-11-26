@@ -13,7 +13,7 @@
         <Label />
         <Label
                 fx:id="errorMessageLabel"
-                style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: red ;" />
+                style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: teal ;" />
         <Label />
         <TextField fx:id="usernameField" prefHeight="40" promptText="Username" style="-fx-background-radius: 10; -fx-border-radius: 10;" />
         <PasswordField fx:id="passwordField" prefHeight="40" promptText="Password" style="-fx-background-radius: 10; -fx-border-radius: 10;" />

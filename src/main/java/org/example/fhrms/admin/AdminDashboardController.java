@@ -4,8 +4,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+
+import java.util.List;
+
+import org.example.fhrms.db;
+import org.example.fhrms.model.Order;
 import org.example.fhrms.service.AuthService;
 import org.example.fhrms.uicontroller.route.Navigation;
 
@@ -33,6 +39,57 @@ public class AdminDashboardController {
 
     @FXML
     private Button analyticsButton;
+
+    @FXML
+    private Label totalUsersLabel;
+
+    @FXML
+    private Label activeSessionsLabel;
+
+    @FXML
+    private Label totalRevenueLabel;
+
+    @FXML
+    private Label pendingRequestsLabel;
+
+    @FXML
+    private AnchorPane admiAnchorPane;
+
+    // private final db database = db.getInstance();
+
+    // @FXML
+    // public void initialize() {
+    // loadDashboardData();
+    // }
+
+    // private void loadDashboardData() {
+    // // fetch total users
+    // int totalUsers = database.getDB().size();
+    // totalUsersLabel.setText("Total Users: " + totalUsers);
+
+    // // Fetch active sessions (this requires session tracking logic; using dummy
+    // // value here)
+    // int activeSessions = 10; // Placeholder value for active sessions
+    // activeSessionsLabel.setText("Active Sessions: " + activeSessions);
+
+    // // Fetch total revenue
+    // double totalRevenue = calculateTotalRevenue();
+    // totalRevenueLabel.setText("Total Revenue: $" + totalRevenue);
+
+    // // Fetch pending requests (orders not yet fulfilled)
+    // long pendingRequests = database.getAllOrders().stream().filter(order ->
+    // !order.isCompleted()).count();
+    // pendingRequestsLabel.setText("Pending Requests: " + pendingRequests);
+    // }
+
+    // private double calculateTotalRevenue() {
+    // List<Order> completedOrders = database.getAllCompletedOrders();
+    // return completedOrders.stream()
+    // .mapToDouble(order ->
+    // order.getFoodItemAndNumberContainer().getKey().getPrice()
+    // * order.getFoodItemAndNumberContainer().getValue())
+    // .sum();
+    // }
 
     @FXML
     private void handleAnalytics() {

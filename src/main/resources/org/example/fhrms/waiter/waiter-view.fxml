@@ -21,6 +21,11 @@
         <VBox spacing="10" style="-fx-padding: 10;">
             <Label text="Pending Orders"
                    style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+            <Label
+            alignment="CENTER"
+                fx:id="infoMessageLabel"
+                style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: teal ;" />
+            <Label />
             <TableView fx:id="pendingOrdersTable" prefHeight="200">
                 <columns>
                     <TableColumn text="Order ID" fx:id="orderIdColumn" prefWidth="100" />
