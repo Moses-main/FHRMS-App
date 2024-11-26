@@ -1,5 +1,9 @@
 package org.example.fhrms.admin;
 
+import javafx.beans.value.ObservableStringValue;
+import javafx.scene.control.cell.PropertyValueFactory;
+import org.example.fhrms.db;
+import org.example.fhrms.model2.User;
 import org.example.fhrms.uicontroller.route.Navigation;
 
 import javafx.event.ActionEvent;
@@ -15,19 +19,34 @@ public class ManageUsersController {
     private Button backButton;
 
     @FXML
-    private TableView<?> usersTable;
+    private TableView<User> usersTable;
 
     @FXML
-    private TableColumn<?, ?> idColumn;
+    private TableColumn<User, String> idColumn;
 
     @FXML
-    private TableColumn<?, ?> nameColumn;
+    private TableColumn<User, String> nameColumn;
 
     @FXML
-    private TableColumn<?, ?> roleColumn;
+    private TableColumn<User, String> roleColumn;
 
     @FXML
-    private TableColumn<?, ?> statusColumn;
+    private TableColumn<User, String> statusColumn;
+
+
+        @FXML
+        private void initialize() {
+            // Ensure the table columns are bound to the correct properties
+            idColumn.setCellValueFactory(new PropertyValueFactory<User, String>("id"));
+            nameColumn.setCellValueFactory(new PropertyValueFactory<User, String>("username"));
+           statusColumn.setCellValueFactory(new PropertyValueFactory<User, String>("fullname"));
+            roleColumn.setCellValueFactory(new PropertyValueFactory<User, String>("userRole"));
+
+            // Populate the TableView with data
+            System.out.println(db.getInstance().getAllUsers()); // Debugging line
+            usersTable.getItems().addAll(db.getInstance().getAllUsers());
+
+    }
 
     public void handleAddUser(ActionEvent event) {
         // Logic to add a user

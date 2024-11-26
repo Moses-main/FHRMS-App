@@ -15,8 +15,8 @@
             <columns>
                 <TableColumn text="ID" fx:id="idColumn" />
                 <TableColumn text="Name" fx:id="nameColumn" />
+                <TableColumn text="FullName" fx:id="statusColumn" />
                 <TableColumn text="Role" fx:id="roleColumn" />
-                <TableColumn text="Status" fx:id="statusColumn" />
             </columns>
         </TableView>
         <HBox alignment="CENTER" spacing="10">

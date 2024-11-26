@@ -54,32 +54,30 @@ public class AdminDashboardController {
     @FXML
     private AnchorPane admiAnchorPane;
 
-    // private final db database = db.getInstance();
+    private final db database = db.getInstance();
 
-    // @FXML
-    // public void initialize() {
-    // loadDashboardData();
-    // }
+     @FXML
+     public void initialize() {
+     loadDashboardData();
+     }
 
-    // private void loadDashboardData() {
-    // // fetch total users
-    // int totalUsers = database.getDB().size();
-    // totalUsersLabel.setText("Total Users: " + totalUsers);
+     private void loadDashboardData() {
+     // fetch total users
+     int totalUsers = database.getAllUsers().size();
+     totalUsersLabel.setText("Total Users: " + totalUsers);
 
-    // // Fetch active sessions (this requires session tracking logic; using dummy
-    // // value here)
-    // int activeSessions = 10; // Placeholder value for active sessions
-    // activeSessionsLabel.setText("Active Sessions: " + activeSessions);
+     // Fetch active sessions (this requires session tracking logic; using dummy
+     // value here)
+     int activeSessions = 10; // Placeholder value for active sessions
+     activeSessionsLabel.setText("Active Sessions: " + activeSessions);
 
-    // // Fetch total revenue
-    // double totalRevenue = calculateTotalRevenue();
-    // totalRevenueLabel.setText("Total Revenue: $" + totalRevenue);
+//     // Fetch total revenue
+//     double totalRevenue = calculateTotalRevenue();
+//     totalRevenueLabel.setText("Total Revenue: $" + totalRevenue);
 
-    // // Fetch pending requests (orders not yet fulfilled)
-    // long pendingRequests = database.getAllOrders().stream().filter(order ->
-    // !order.isCompleted()).count();
-    // pendingRequestsLabel.setText("Pending Requests: " + pendingRequests);
-    // }
+     long pendingRequests = database.getAllOrders().size();
+     pendingRequestsLabel.setText("Pending Requests: " + pendingRequests);
+     }
 
     // private double calculateTotalRevenue() {
     // List<Order> completedOrders = database.getAllCompletedOrders();
