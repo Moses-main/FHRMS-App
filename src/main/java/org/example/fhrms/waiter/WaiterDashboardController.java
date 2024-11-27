@@ -222,7 +222,7 @@ public class WaiterDashboardController {
         receiptBuilder.append("Customer Name: ").append(selectedOrder.getCustomerName()).append("\n");
         receiptBuilder.append("Cooked Time: ").append(selectedOrder.getCookedTime()).append("\n");
         receiptBuilder.append("------------------------------------------------\n");
-        receiptBuilder.append("Items:\n");
+        receiptBuilder.append("Items: ").append(selectedOrder.getItems()).append("\n");
 
         // double total = selectedOrder.getPrice();
         // for (Map.Entry<String, Integer> item : selectedOrder.getItems()) {
