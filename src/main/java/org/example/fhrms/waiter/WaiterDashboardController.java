@@ -40,6 +40,9 @@ public class WaiterDashboardController {
     private TableColumn<Order, String> itemsColumn;
 
     @FXML
+    private TableColumn<Order, String> priceColumn;
+
+    @FXML
     private TableColumn<Order, Void> actionsColumn; // Void because it holds a Button, not text
 
     // Table Columns for Completed Orders
@@ -64,6 +67,9 @@ public class WaiterDashboardController {
 
     @FXML
     private TextField itemsField;
+
+    @FXML
+    private TextField priceField;
 
     @FXML
     private Button createOrderButton;
@@ -96,11 +102,13 @@ public class WaiterDashboardController {
         orderIdColumn.setCellValueFactory(new PropertyValueFactory<>("orderId"));
         customerNameColumn.setCellValueFactory(new PropertyValueFactory<>("customerName"));
         itemsColumn.setCellValueFactory(new PropertyValueFactory<>("items"));
+        priceColumn.setCellValueFactory(new PropertyValueFactory<>("itemPrice"));
 
         // Completed Orders
         completedOrderIdColumn.setCellValueFactory(new PropertyValueFactory<>("orderId"));
         completedCustomerNameColumn.setCellValueFactory(new PropertyValueFactory<>("customerName"));
         completedItemsColumn.setCellValueFactory(new PropertyValueFactory<>("items"));
+        priceColumn.setCellValueFactory(new PropertyValueFactory<>("itemPrice"));
         servedTimeColumn.setCellValueFactory(new PropertyValueFactory<>("servedTime"));
     }
 
@@ -150,7 +158,8 @@ public class WaiterDashboardController {
         // Add order to completedOrdersTable with served time
         String currentTime = LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm a"));
         completedOrdersTable.getItems().add(
-                new Order(order.getOrderId(), order.getCustomerName(), order.getItems(), currentTime));
+                new Order(order.getOrderId(), order.getCustomerName(), order.getItems(), order.getPrice(),
+                        currentTime));
     }
 
     @FXML
@@ -158,16 +167,16 @@ public class WaiterDashboardController {
         String orderId = orderIdField.getText();
         String customerName = customerNameField.getText();
         String items = itemsField.getText();
+        String itemPrice = priceField.getText();
 
-        if (orderId.isEmpty() || customerName.isEmpty() || items.isEmpty()) {
+        if (orderId.isEmpty() || customerName.isEmpty() || itemPrice.isEmpty() || items.isEmpty()
+                || itemPrice.isEmpty()) {
             infoMessageLabel.setText("Please fill all fields!");
 
-            // showAlert("Validation Error", "Please fill all fields!",
-            // Alert.AlertType.ERROR);
             return;
         }
 
-        Order order = new Order(orderId, customerName, null, items);
+        Order order = new Order(orderId, customerName, items, itemPrice);
         // Add order to pending orders
         pendingOrdersTable.getItems().add(order);
 
@@ -175,11 +184,9 @@ public class WaiterDashboardController {
         orderIdField.clear();
         customerNameField.clear();
         itemsField.clear();
+        priceField.clear();
         db.getInstance().saveOrder(order);
         infoMessageLabel.setText("Order created successfully!");
-
-        // showAlert("Success", "Order created successfully!",
-        // Alert.AlertType.INFORMATION);
     }
 
     @FXML
@@ -217,7 +224,7 @@ public class WaiterDashboardController {
         receiptBuilder.append("------------------------------------------------\n");
         receiptBuilder.append("Items:\n");
 
-        double total = 10.0;
+        // double total = selectedOrder.getPrice();
         // for (Map.Entry<String, Integer> item : selectedOrder.getItems()) {
         // String itemName = item.getKey();
         // int quantity = item.getValue();
@@ -230,7 +237,7 @@ public class WaiterDashboardController {
         // }
 
         receiptBuilder.append("------------------------------------------------\n");
-        receiptBuilder.append("Total: $").append(total).append("\n");
+        receiptBuilder.append("Total: $").append(selectedOrder.getPrice()).append("\n");
         receiptBuilder.append("================================================\n");
 
         receiptTextArea.setText(receiptBuilder.toString());

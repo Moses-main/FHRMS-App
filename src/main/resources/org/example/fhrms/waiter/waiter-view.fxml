@@ -31,6 +31,7 @@
                     <TableColumn text="Order ID" fx:id="orderIdColumn" prefWidth="100" />
                     <TableColumn text="Customer Name" fx:id="customerNameColumn" prefWidth="200" />
                     <TableColumn text="Items" fx:id="itemsColumn" prefWidth="300" />
+                      <TableColumn text="Price" fx:id="priceColumn" prefWidth="300" />
                     <TableColumn text="Actions" fx:id="actionsColumn" prefWidth="150" />
                 </columns>
             </TableView>
@@ -45,6 +46,7 @@
                     <TableColumn text="Order ID" fx:id="completedOrderIdColumn" prefWidth="100" />
                     <TableColumn text="Customer Name" fx:id="completedCustomerNameColumn" prefWidth="200" />
                     <TableColumn text="Items" fx:id="completedItemsColumn" prefWidth="300" />
+                    <TableColumn text="Item Price" fx:id="priceColumn" prefWidth="300" />
                     <TableColumn text="Served Time" fx:id="servedTimeColumn" prefWidth="150" />
                 </columns>
             </TableView>
@@ -67,6 +69,11 @@
                 <TextField fx:id="customerNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <Label text="Items:" style="-fx-font-size: 14px;" GridPane.rowIndex="2" />
                 <TextField fx:id="itemsField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <!-- <Label text="Item Price:" style="-fx-font-size: 14px;" GridPane.rowIndex="2" />
+                 <TextField fx:id="priceField" GridPane.columnIndex="1" GridPane.rowIndex="2" /> -->
+
+                 <Label text="Item Price:" style="-fx-font-size: 14px;" GridPane.rowIndex="3" />
+                <TextField fx:id="priceField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             </GridPane>
             <Button fx:id="createOrderButton" text="Create Order"
                     style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"

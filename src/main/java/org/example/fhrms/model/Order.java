@@ -9,19 +9,22 @@ public class Order {
     private final String items; // Item name to quantity
     // private final String items;
     private final SimpleStringProperty cookedTime;
+    private final String itemPrice;
 
     // Constructor for Pending Orders
-    public Order(String orderId, String customerName, String items) {
+    public Order(String orderId, String customerName, String items, String itemPrice) {
         this.orderId = orderId;
         this.customerName = customerName;
         this.items = items;
+        this.itemPrice = itemPrice;
         this.cookedTime = new SimpleStringProperty("");
     }
 
     // Constructor for Completed Orders
-    public Order(String orderId, String customerName, String items, String cookedTime) {
+    public Order(String orderId, String customerName, String items, String cookedTime, String itemPrice) {
         this.orderId = orderId;
         this.customerName = customerName;
+        this.itemPrice = itemPrice;
         this.items = items;
         this.cookedTime = new SimpleStringProperty(cookedTime);
     }
@@ -36,6 +39,10 @@ public class Order {
 
     public String getItems() {
         return items;
+    }
+
+    public String getPrice() {
+        return itemPrice;
     }
 
     public String getCookedTime() {
