@@ -163,7 +163,7 @@ public class WaiterDashboardController {
             return;
         }
 
-        Order order = new Order(orderId, customerName, items);
+        Order order = new Order(orderId, customerName, null, items);
         // Add order to pending orders
         pendingOrdersTable.getItems().add(order);
 
