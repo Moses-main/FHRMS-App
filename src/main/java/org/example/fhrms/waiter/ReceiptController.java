@@ -1,10 +1,11 @@
 // package org.example.fhrms.waiter;
 
-// import javafx.fxml.FXML;
-// import javafx.scene.control.*;
-// import org.example.fhrms.db;
-// import org.example.fhrms.model.Order;
-// import org.example.fhrms.model.FoodItem;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import org.example.fhrms.db;
+import org.example.fhrms.model.Order;
+import org.example.fhrms.model.FoodItem;
 
 // import java.util.List;
 // import java.util.Map;
@@ -28,14 +29,11 @@
 
 // private final db database = db.getInstance();
 
-// @FXML
-// public void initialize() {
-// orderIdColumn.setCellValueFactory(cellData ->
-// cellData.getValue().orderIdProperty());
-// customerNameColumn.setCellValueFactory(cellData ->
-// cellData.getValue().customerNameProperty());
-// cookedTimeColumn.setCellValueFactory(cellData ->
-// cellData.getValue().cookedTimeProperty());
+    @FXML
+    public void initialize() {
+        orderIdColumn.setCellValueFactory(new PropertyValueFactory<>("orderId"));
+        customerNameColumn.setCellValueFactory(new PropertyValueFactory<>("customerName"));
+        cookedTimeColumn.setCellValueFactory(new PropertyValueFactory<>("cookedTime"));
 
 // loadCompletedOrders();
 // }
@@ -68,17 +66,16 @@
 // receiptBuilder.append("------------------------------------------------\n");
 // receiptBuilder.append("Items:\n");
 
-// double total = 0.0;
-// for (Map.Entry<String, Integer> item : selectedOrder.getItems().entrySet()) {
-// String itemName = item.getKey();
-// int quantity = item.getValue();
-// FoodItem foodItem = database.getFoodItemsById(itemName).orElse(null);
-// double price = foodItem != null ? foodItem.getPrice() : 0.0;
-
-// receiptBuilder.append(itemName).append(" (").append(quantity).append(" x
-// $").append(price).append(")\n");
-// total += price * quantity;
-// }
+        double total = 10.0;
+//        for (Map.Entry<String, Integer> item : selectedOrder.getItems()) {
+//            String itemName = item.getKey();
+//            int quantity = item.getValue();
+//            FoodItem foodItem = database.getFoodItemsById(itemName).orElse(null);
+//            double price = foodItem != null ? foodItem.getPrice() : 0.0;
+//
+//            receiptBuilder.append(itemName).append(" (").append(quantity).append(" x $").append(price).append(")\n");
+//            total += price * quantity;
+//        }
 
 // receiptBuilder.append("------------------------------------------------\n");
 // receiptBuilder.append("Total: $").append(total).append("\n");

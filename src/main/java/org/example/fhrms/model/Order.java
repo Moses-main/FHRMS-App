@@ -6,12 +6,12 @@ import java.util.Map;
 public class Order {
     private final String orderId;
     private final String customerName;
-    private final Map<String, Integer> items; // Item name to quantiy
+    private final String items; // Item name to quantity
     // private final String items;
     private final SimpleStringProperty cookedTime;
 
     // Constructor for Pending Orders
-    public Order(String orderId, String customerName, Map<String, Integer> items) {
+    public Order(String orderId, String customerName, String items) {
         this.orderId = orderId;
         this.customerName = customerName;
         this.items = items;
@@ -19,7 +19,7 @@ public class Order {
     }
 
     // Constructor for Completed Orders
-    public Order(String orderId, String customerName, Map<String, Integer> items, String cookedTime) {
+    public Order(String orderId, String customerName, String items, String cookedTime) {
         this.orderId = orderId;
         this.customerName = customerName;
         this.items = items;
@@ -34,7 +34,7 @@ public class Order {
         return customerName;
     }
 
-    public Map<String, Integer> getItems() {
+    public String getItems() {
         return items;
     }
 

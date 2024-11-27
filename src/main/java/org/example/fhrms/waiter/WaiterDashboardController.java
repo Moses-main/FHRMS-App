@@ -1,6 +1,7 @@
 package org.example.fhrms.waiter;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -192,4 +193,11 @@ public class WaiterDashboardController {
         alert.showAndWait();
     }
 
+    @FXML
+    public void handleGenerateReceipt(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void handlePrintReceipt(ActionEvent actionEvent) {
+    }
 }
