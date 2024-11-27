@@ -16,7 +16,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         System.out.println(HelloApplication.class.getResource("root.fxml"));
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("auth/login-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("auth/signup-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 640, 320);
         scene.getStylesheets().setAll(BootstrapFX.bootstrapFXStylesheet());
         stage.setTitle("FHRMS");
