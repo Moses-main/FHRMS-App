@@ -1,4 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane
+        fx:id="mainContainer"
+        xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: #f0f4f8;" fx:controller="org.example.fhrms.admin.InventoryManagementController">
+    <VBox alignment="CENTER" spacing="20" prefWidth="600" prefHeight="400" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" styleClass="auth-container">
+        <style>
+            -fx-padding: 0px 300px;
+        </style>
+
+           <HBox alignment="CENTER_RIGHT" spacing="10.0" prefWidth="800" AnchorPane.topAnchor="10.0">
+           
+            <Button text="Back to Dashboard" fx:id="backButton" onAction="#handleBackToDashboard"
+                     
+                    style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;" />
+        </HBox>
+
+        <!-- Title -->
+        <Label text="Inventory Management" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
+
+        <!-- Inventory Table -->
+        <TableView fx:id="inventoryTable" prefWidth="550" prefHeight="200" style="-fx-border-radius: 10;">
+            <columns>
+                <TableColumn text="Item ID" fx:id="itemIdColumn" />
+                <TableColumn text="Name" fx:id="itemNameColumn" />
+                <TableColumn text="Quantity" fx:id="itemQuantityColumn" />
+                <TableColumn text="Price" fx:id="itemPriceColumn" />
+            </columns>
+        </TableView>
+
+        <!-- Notification Label -->
+        <Label fx:id="notificationLabel" text="Low stock notifications will appear here" style="-fx-text-fill: red; -fx-font-size: 14px;" />
+
+        <!-- Action Buttons -->
+        <HBox alignment="CENTER" spacing="10">
+            <Button text="Add Item" onAction="#handleAddItem" prefHeight="40" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;" />
+            <Button text="Update Item" onAction="#handleUpdateItem" prefHeight="40" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;" />
+            <Button text="Delete Item" onAction="#handleDeleteItem" prefHeight="40" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;" />
+        </HBox>
+    </VBox>
+</AnchorPane>
+
+
+
+<!-- <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -25,24 +71,4 @@
             <Button text="Delete Item" onAction="#handleDeleteItem" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" />
         </HBox>
     </VBox>
-
-
-
-    <!-- Create Order Section -->
-        <!-- <VBox spacing="10" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-border-color: #bdc3c7; -fx-border-radius: 5;">
-            <Label text="Create New Order"
-                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
-            <GridPane hgap="10" vgap="10">
-                <Label text="Item ID:" style="-fx-font-size: 14px;" />
-                <TextField fx:id="itemIdField" GridPane.columnIndex="1" />
-                <Label text="Customer Name:" style="-fx-font-size: 14px;" GridPane.rowIndex="1" />
-                <TextField fx:id="ItemsFIeld" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <Label text="Items:" style="-fx-font-size: 14px;" GridPane.rowIndex="2" />
-                <TextField fx:id="itemsField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            </GridPane>
-            <Button fx:id="createItemButton" text="Create Item"
-                    style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"
-                    onAction="#createItem" />  
-        </VBox> -->
-
-</AnchorPane>
+ -->

@@ -2,6 +2,7 @@ package org.example.fhrms;
 
 import javafx.util.Pair;
 import org.example.fhrms.model.FoodItem;
+import org.example.fhrms.model.Inventory;
 import org.example.fhrms.model.Order;
 import org.example.fhrms.model2.Role;
 import org.example.fhrms.model2.User;
@@ -19,7 +20,9 @@ public class db {
     private final HashMap<String, FoodItem> FoodItemDB = new HashMap<>();
     private final HashMap<String, Order> OrderDB = new HashMap<>();
     private final HashMap<String, Order> CompletedOrderDB = new HashMap<>();
-    private final Set<String> activeSessions = new HashSet<>(); // placeholder for session tracking.
+    private final HashMap<String, Inventory> InventoryDB = new HashMap<>();
+    private final Set<String> activeSessions = new HashSet<>(); // placeholder
+    // for session tracking.
 
     private static db data = new db();
 
@@ -33,6 +36,11 @@ public class db {
         DB.put(admin.id(), admin);
         DB.put(chef.id(), chef);
         DB.put(waiter.id(), waiter);
+
+        // InventoryDB.put("1", new Inventory("1", "Tomatoes", 50, 2.5));
+        // InventoryDB.put("2", new Inventory("2",
+        // "Onions ", 20, 1.5));
+        // InventoryDB.put("3", new Inventory("3", "Cheese", 10, 5.0));
     }
 
     public static db getInstance() {
@@ -131,5 +139,37 @@ public class db {
     // * order.getFoodItemAndNumberContainer().getValue())
     // .sum();
     // }
+
+    // Inventory
+    public List<Inventory> getAllInventory() {
+        return new ArrayList<>(InventoryDB.values());
+    }
+
+    public Optional<Inventory> getInventoryById(String id) {
+        return Optional.ofNullable(InventoryDB.get(id));
+    }
+
+    public void addInventory(Inventory item) {
+        InventoryDB.put(item.getId(), item);
+    }
+
+    public void updateInventory(Inventory item) {
+        InventoryDB.put(item.getId(), item);
+    }
+
+    public void deleteInventory(String id) {
+        InventoryDB.remove(id);
+    }
+
+    public List<Inventory> getLowStockItems(int threshold) {
+        List<Inventory> lowStockItems = new ArrayList<>();
+
+        for (Inventory item : InventoryDB.values()) {
+            if (item.getQuantity() <= threshold) {
+                lowStockItems.add(item);
+            }
+        }
+        return lowStockItems;
+    }
 
 }
