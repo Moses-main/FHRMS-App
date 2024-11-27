@@ -8,8 +8,10 @@ import org.example.fhrms.model2.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 
 public class db {
@@ -17,6 +19,7 @@ public class db {
     private final HashMap<String, FoodItem> FoodItemDB = new HashMap<>();
     private final HashMap<String, Order> OrderDB = new HashMap<>();
     private final HashMap<String, Order> CompletedOrderDB = new HashMap<>();
+    private final Set<String> activeSessions = new HashSet<>(); // placeholder for session tracking.
 
     private static db data = new db();
 
@@ -55,6 +58,10 @@ public class db {
         return Optional.empty();
     }
 
+    public HashMap<String, User> getDB() {
+        return DB;
+    }
+
     public List<User> getAllUsers() {
         return new ArrayList<>(DB.values());
     }
@@ -87,6 +94,14 @@ public class db {
     // FoodItemDB.put(foodItem.getId(), foodItem);
     // }
 
+    public void updateFoodItem(String id, FoodItem updatedFoodItem) {
+        FoodItemDB.put(id, updatedFoodItem);
+    }
+
+    public void deleteFoodItem(String id) {
+        FoodItemDB.remove(id);
+    }
+
     public List<FoodItem> getAllFoodItems() {
         return new ArrayList<>(FoodItemDB.values());
     }
@@ -94,5 +109,27 @@ public class db {
     public Optional<FoodItem> getFoodItemsById(String id) {
         return Optional.ofNullable(FoodItemDB.get(id));
     }
+
+    // Active Sessions Management (Dummy implementation)
+    public void addActiveSession(String sessionId) {
+        activeSessions.add(sessionId);
+    }
+
+    public void removeActiveSession(String sessionId) {
+        activeSessions.remove(sessionId);
+    }
+
+    public int getActiveSessionCount() {
+        return activeSessions.size();
+    }
+
+    // Revenue Calculation
+    // public double calculateTotalRevenue() {
+    // return CompletedOrderDB.values().stream()
+    // .mapToDouble(order ->
+    // order.getFoodItemAndNumberContainer().getKey().getPrice()
+    // * order.getFoodItemAndNumberContainer().getValue())
+    // .sum();
+    // }
 
 }
