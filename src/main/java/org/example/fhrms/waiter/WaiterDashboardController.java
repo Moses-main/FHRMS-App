@@ -76,6 +76,9 @@ public class WaiterDashboardController {
     private Button logoutButton;
 
     @FXML
+    private TextArea receiptTextArea;
+
+    @FXML
     public void initialize() {
         // Initialize columns
         initializeTableColumns();
@@ -195,9 +198,47 @@ public class WaiterDashboardController {
 
     @FXML
     public void handleGenerateReceipt(ActionEvent actionEvent) {
+
+        System.out.println("Generate Reciept Button Clicked");
+
+        Order selectedOrder = completedOrdersTable.getSelectionModel().getSelectedItem();
+
+        if (selectedOrder == null) {
+            showAlert("No Order Selected", "Please select a completed order to generate a receipt.",
+                    Alert.AlertType.WARNING);
+            return;
+        }
+
+        StringBuilder receiptBuilder = new StringBuilder();
+        receiptBuilder.append("============ Food Heaven Restaurant ============\n");
+        receiptBuilder.append("Order ID: ").append(selectedOrder.getOrderId()).append("\n");
+        receiptBuilder.append("Customer Name: ").append(selectedOrder.getCustomerName()).append("\n");
+        receiptBuilder.append("Cooked Time: ").append(selectedOrder.getCookedTime()).append("\n");
+        receiptBuilder.append("------------------------------------------------\n");
+        receiptBuilder.append("Items:\n");
+
+        double total = 10.0;
+        // for (Map.Entry<String, Integer> item : selectedOrder.getItems()) {
+        // String itemName = item.getKey();
+        // int quantity = item.getValue();
+        // FoodItem foodItem = database.getFoodItemsById(itemName).orElse(null);
+        // double price = foodItem != null ? foodItem.getPrice() : 0.0;
+
+        // receiptBuilder.append(itemName).append(" (").append(quantity).append(" x
+        // $").append(price).append(")\n");
+        // total += price * quantity;
+        // }
+
+        receiptBuilder.append("------------------------------------------------\n");
+        receiptBuilder.append("Total: $").append(total).append("\n");
+        receiptBuilder.append("================================================\n");
+
+        receiptTextArea.setText(receiptBuilder.toString());
     }
 
     @FXML
     public void handlePrintReceipt(ActionEvent actionEvent) {
+
+        System.out.println("Print reciept Button clicked");
     }
 }
