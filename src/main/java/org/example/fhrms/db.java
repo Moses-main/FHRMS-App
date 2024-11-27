@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
@@ -132,13 +133,23 @@ public class db {
     }
 
     // Revenue Calculation
-    // public double calculateTotalRevenue() {
-    // return CompletedOrderDB.values().stream()
-    // .mapToDouble(order ->
-    // order.getFoodItemAndNumberContainer().getKey().getPrice()
-    // * order.getFoodItemAndNumberContainer().getValue())
-    // .sum();
-    // }
+    public double calculateTotalRevenue() {
+        double totalRevenue = 0.0;
+
+        for (Order order : CompletedOrderDB.values()) {
+            for (Entry<String, Integer> item : order.getItems().entrySet()) {
+                String itemName = item.getKey();
+                int quantity = item.getValue();
+
+                // Assume each FoodItem is already stored in FoodItemDB with a price
+                FoodItem foodItem = FoodItemDB.get(itemName);
+                if (foodItem != null) {
+                    totalRevenue += foodItem.getPrice() * quantity;
+                }
+            }
+        }
+        return totalRevenue;
+    }
 
     // Inventory
     public List<Inventory> getAllInventory() {

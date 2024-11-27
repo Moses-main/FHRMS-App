@@ -48,6 +48,12 @@
                     <TableColumn text="Served Time" fx:id="servedTimeColumn" prefWidth="150" />
                 </columns>
             </TableView>
+             <HBox spacing="10" alignment="CENTER">
+            <Button text="Generate Receipt" fx:id="generateReceiptButton" onAction="#handleGenerateReceipt" style="-fx-background-color: #3498db; -fx-text-fill: white;" />
+            <Button text="Print Receipt" fx:id="printReceiptButton" onAction="#handlePrintReceipt" style="-fx-background-color: #2ecc71; -fx-text-fill: white;" />
+            </HBox>
+            <TextArea fx:id="receiptTextArea" prefWidth="700" prefHeight="200" editable="false" style="-fx-background-color: #ecf0f1;" />
+
         </VBox>
 
         <!-- Create Order Section -->

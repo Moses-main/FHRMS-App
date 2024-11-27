@@ -1,15 +1,17 @@
 package org.example.fhrms.model;
 
 import javafx.beans.property.SimpleStringProperty;
+import java.util.Map;
 
 public class Order {
     private final String orderId;
     private final String customerName;
-    private final String items;
+    private final Map<String, Integer> items; // Item name to quantiy
+    // private final String items;
     private final SimpleStringProperty cookedTime;
 
     // Constructor for Pending Orders
-    public Order(String orderId, String customerName, String items) {
+    public Order(String orderId, String customerName, Map<String, Integer> items) {
         this.orderId = orderId;
         this.customerName = customerName;
         this.items = items;
@@ -17,7 +19,7 @@ public class Order {
     }
 
     // Constructor for Completed Orders
-    public Order(String orderId, String customerName, String items, String cookedTime) {
+    public Order(String orderId, String customerName, Map<String, Integer> items, String cookedTime) {
         this.orderId = orderId;
         this.customerName = customerName;
         this.items = items;
@@ -32,7 +34,7 @@ public class Order {
         return customerName;
     }
 
-    public String getItems() {
+    public Map<String, Integer> getItems() {
         return items;
     }
 

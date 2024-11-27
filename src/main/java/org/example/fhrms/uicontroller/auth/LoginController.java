@@ -1,6 +1,5 @@
 package org.example.fhrms.uicontroller.auth;
 
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -32,7 +31,7 @@ public class LoginController {
             public void run() {
                 Navigation.navigateTo(route, stage);
             }
-        },1000);
+        }, 1000);
     }
 
     @FXML

@@ -2,11 +2,11 @@ package org.example.fhrms.admin;
 
 import org.example.fhrms.uicontroller.route.Navigation;
 
-import javafx.event.ActionEvent;
+// import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+// import javafx.scene.control.PasswordField;
+// import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class SettingsController {
@@ -14,18 +14,18 @@ public class SettingsController {
     @FXML
     private Button backButton;
 
-    @FXML
-    private PasswordField passwordField;
+    // @FXML
+    // private PasswordField passwordField;
 
-    @FXML
-    private PasswordField confirmPasswordField;
+    // @FXML
+    // private PasswordField confirmPasswordField;
 
-    @FXML
-    private TextField emailField;
+    // @FXML
+    // private TextField emailField;
 
-    public void handleSaveSettings(ActionEvent event) {
-        // Logic to save settings (e.g., validate and update password or email)
-    }
+    // public void handleSaveSettings(ActionEvent event) {
+    // // Logic to save settings (e.g., validate and update password or email)
+    // }
 
     /**
      * Handles the back button action to return to the admin dashboard.
