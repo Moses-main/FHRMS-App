@@ -20,6 +20,8 @@ import java.util.TimerTask;
 public class WaiterDashboardController {
 
     @FXML
+    public TableColumn<Order,Double> completedPriceColumn;
+    @FXML
     private Label infoMessageLabel;
 
     // TableViews
@@ -38,6 +40,9 @@ public class WaiterDashboardController {
 
     @FXML
     private TableColumn<Order, String> itemsColumn;
+
+    @FXML
+    private TableColumn<Order, Double> priceColumn;
 
     @FXML
     private TableColumn<Order, Void> actionsColumn; // Void because it holds a Button, not text
@@ -66,6 +71,9 @@ public class WaiterDashboardController {
     private TextField itemsField;
 
     @FXML
+    private TextField priceField;
+
+    @FXML
     private Button createOrderButton;
 
     @FXML
@@ -74,6 +82,9 @@ public class WaiterDashboardController {
     // Logout Button
     @FXML
     private Button logoutButton;
+
+    @FXML
+    private TextArea receiptTextArea;
 
     @FXML
     public void initialize() {
@@ -93,11 +104,13 @@ public class WaiterDashboardController {
         orderIdColumn.setCellValueFactory(new PropertyValueFactory<>("orderId"));
         customerNameColumn.setCellValueFactory(new PropertyValueFactory<>("customerName"));
         itemsColumn.setCellValueFactory(new PropertyValueFactory<>("items"));
+        priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         // Completed Orders
         completedOrderIdColumn.setCellValueFactory(new PropertyValueFactory<>("orderId"));
         completedCustomerNameColumn.setCellValueFactory(new PropertyValueFactory<>("customerName"));
         completedItemsColumn.setCellValueFactory(new PropertyValueFactory<>("items"));
+        completedPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
         servedTimeColumn.setCellValueFactory(new PropertyValueFactory<>("servedTime"));
     }
 
@@ -147,7 +160,8 @@ public class WaiterDashboardController {
         // Add order to completedOrdersTable with served time
         String currentTime = LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm a"));
         completedOrdersTable.getItems().add(
-                new Order(order.getOrderId(), order.getCustomerName(), order.getItems(), currentTime));
+                new Order(order.getOrderId(), order.getCustomerName(),  order.getPrice(),order.getItems(),
+                        currentTime));
     }
 
     @FXML
@@ -155,28 +169,27 @@ public class WaiterDashboardController {
         String orderId = orderIdField.getText();
         String customerName = customerNameField.getText();
         String items = itemsField.getText();
+        String itemPrice = priceField.getText();
 
-        if (orderId.isEmpty() || customerName.isEmpty() || items.isEmpty()) {
+        if (orderId.isEmpty() || customerName.isEmpty() || itemPrice.isEmpty() || items.isEmpty()
+                || itemPrice.isEmpty()) {
             infoMessageLabel.setText("Please fill all fields!");
 
-            // showAlert("Validation Error", "Please fill all fields!",
-            // Alert.AlertType.ERROR);
             return;
         }
 
-        Order order = new Order(orderId, customerName, items);
+        Order order = new Order(orderId, customerName, Double.parseDouble(itemPrice),items, "10");
         // Add order to pending orders
+        System.out.println(order.getPrice());
         pendingOrdersTable.getItems().add(order);
 
         // Clear inputs
         orderIdField.clear();
         customerNameField.clear();
         itemsField.clear();
+        priceField.clear();
         db.getInstance().saveOrder(order);
         infoMessageLabel.setText("Order created successfully!");
-
-        // showAlert("Success", "Order created successfully!",
-        // Alert.AlertType.INFORMATION);
     }
 
     @FXML
@@ -195,9 +208,47 @@ public class WaiterDashboardController {
 
     @FXML
     public void handleGenerateReceipt(ActionEvent actionEvent) {
+
+        System.out.println("Generate Reciept Button Clicked");
+
+        Order selectedOrder = completedOrdersTable.getSelectionModel().getSelectedItem();
+
+        if (selectedOrder == null) {
+            showAlert("No Order Selected", "Please select a completed order to generate a receipt.",
+                    Alert.AlertType.WARNING);
+            return;
+        }
+
+        StringBuilder receiptBuilder = new StringBuilder();
+        receiptBuilder.append("============ Food Heaven Restaurant ============\n");
+        receiptBuilder.append("Order ID: ").append(selectedOrder.getOrderId()).append("\n");
+        receiptBuilder.append("Customer Name: ").append(selectedOrder.getCustomerName()).append("\n");
+        receiptBuilder.append("Cooked Time: ").append(selectedOrder.getCookedTime()).append("\n");
+        receiptBuilder.append("------------------------------------------------\n");
+        receiptBuilder.append("Items: ").append(selectedOrder.getItems()).append("\n");
+
+        // double total = selectedOrder.getPrice();
+        // for (Map.Entry<String, Integer> item : selectedOrder.getItems()) {
+        // String itemName = item.getKey();
+        // int quantity = item.getValue();
+        // FoodItem foodItem = database.getFoodItemsById(itemName).orElse(null);
+        // double price = foodItem != null ? foodItem.getPrice() : 0.0;
+
+        // receiptBuilder.append(itemName).append(" (").append(quantity).append(" x
+        // $").append(price).append(")\n");
+        // total += price * quantity;
+        // }
+
+        receiptBuilder.append("------------------------------------------------\n");
+        receiptBuilder.append("Total: $").append(selectedOrder.getPrice()).append("\n");
+        receiptBuilder.append("================================================\n");
+
+        receiptTextArea.setText(receiptBuilder.toString());
     }
 
     @FXML
     public void handlePrintReceipt(ActionEvent actionEvent) {
+
+        System.out.println("Print reciept Button clicked");
     }
 }

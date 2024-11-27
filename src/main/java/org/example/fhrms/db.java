@@ -132,22 +132,26 @@ public class db {
         return activeSessions.size();
     }
 
+    public List<Order> getTotalRevenue() {
+        return new ArrayList<>(CompletedOrderDB.values());
+    }
+
     // Revenue Calculation
     public double calculateTotalRevenue() {
-        double totalRevenue = 10.0;
+        double totalRevenue = 10;
 
-//        for (Order order : CompletedOrderDB.values()) {
-//            for (Entry<String, Integer> item : order.getItems().entrySet()) {
-//                String itemName = item.getKey();
-//                int quantity = item.getValue();
-//
-//                // Assume each FoodItem is already stored in FoodItemDB with a price
-//                FoodItem foodItem = FoodItemDB.get(itemName);
-//                if (foodItem != null) {
-//                    totalRevenue += foodItem.getPrice() * quantity;
-//                }
-//            }
-//        }
+        // for (Order order : CompletedOrderDB.values()) {
+        // for (Entry<String, Integer> item : order.getItems().entrySet()) {
+        // String itemName = item.getKey();
+        // int quantity = item.getValue();
+        //
+        // // Assume each FoodItem is already stored in FoodItemDB with a price
+        // FoodItem foodItem = FoodItemDB.get(itemName);
+        // if (foodItem != null) {
+        // totalRevenue += foodItem.getPrice() * quantity;
+        // }
+        // }
+        // }
         return totalRevenue;
     }
 

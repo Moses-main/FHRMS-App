@@ -56,37 +56,29 @@ public class AdminDashboardController {
 
     private final db database = db.getInstance();
 
-     @FXML
-     public void initialize() {
-     loadDashboardData();
-     }
+    @FXML
+    public void initialize() {
+        loadDashboardData();
+    }
 
-     private void loadDashboardData() {
-     // fetch total users
-     int totalUsers = database.getAllUsers().size();
-     totalUsersLabel.setText("Total Users: " + totalUsers);
+    private void loadDashboardData() {
+        // fetch total users
+        int totalUsers = database.getAllUsers().size();
+        totalUsersLabel.setText("Total Users: " + totalUsers);
 
-     // Fetch active sessions (this requires session tracking logic; using dummy
-     // value here)
-     int activeSessions = 10; // Placeholder value for active sessions
-     activeSessionsLabel.setText("Active Sessions: " + activeSessions);
+        // Fetch active sessions (this requires session tracking logic; using dummy
+        // value here)
+        int activeSessions = 10; // Placeholder value for active sessions
+        activeSessionsLabel.setText("Active Sessions: " + activeSessions);
 
-//     // Fetch total revenue
-//     double totalRevenue = calculateTotalRevenue();
-//     totalRevenueLabel.setText("Total Revenue: $" + totalRevenue);
+        // FETCH TOTAL REVENUE
 
-     long pendingRequests = database.getAllOrders().size();
-     pendingRequestsLabel.setText("Pending Requests: " + pendingRequests);
-     }
+        int totalRevenue = database.getTotalRevenue().size();
+        totalRevenueLabel.setText("Total Revenue: " + totalRevenue);
 
-    // private double calculateTotalRevenue() {
-    // List<Order> completedOrders = database.getAllCompletedOrders();
-    // return completedOrders.stream()
-    // .mapToDouble(order ->
-    // order.getFoodItemAndNumberContainer().getKey().getPrice()
-    // * order.getFoodItemAndNumberContainer().getValue())
-    // .sum();
-    // }
+        long pendingRequests = database.getAllOrders().size();
+        pendingRequestsLabel.setText("Pending Requests: " + pendingRequests);
+    }
 
     @FXML
     private void handleAnalytics() {
